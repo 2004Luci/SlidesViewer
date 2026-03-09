@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Role of CS: Compliance Verification &amp; Coordination</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .navy-text {
+            color: #003366;
+        }
+
+        .navy-bg {
+            background-color: #003366;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Header */
+        .header {
+            padding: 30px 60px 10px 60px;
+            border-bottom: 2px solid #E5E7EB;
+            flex-shrink: 0;
+        }
+
+        /* Content Layout */
+        .main-content {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* Left Visual Panel */
+        .visual-panel {
+            width: 55%;
+            background-color: #f8fafc;
+            border-right: 1px solid #e2e8f0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Right Content Panel */
+        .text-panel {
+            width: 45%;
+            padding: 50px 60px 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* RACI Matrix Styles */
+        .raci-container {
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+
+        .raci-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            background-color: #003366;
+            color: white;
+            padding: 12px 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .raci-header>div:first-child {
+            text-align: left;
+            padding-left: 10px;
+        }
+
+        .raci-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 12px 10px;
+            align-items: center;
+            font-size: 13px;
+            color: #374151;
+        }
+
+        .raci-row:last-child {
+            border-bottom: none;
+        }
+
+        .raci-row:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        .raci-cell {
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .raci-label {
+            text-align: left;
+            padding-left: 10px;
+            font-weight: 500;
+            color: #111827;
+        }
+
+        .role-badge {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .badge-R {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
+        /* Responsible */
+        .badge-A {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+
+        /* Accountable */
+        .badge-C {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+
+        /* Consulted */
+        .badge-I {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
+        /* Informed */
+
+        /* Legend */
+        .legend {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            font-size: 11px;
+            color: #6b7280;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Bullet Points */
+        .bullet-item {
+            display: flex;
+            margin-bottom: 24px;
+            align-items: flex-start;
+        }
+
+        .bullet-icon {
+            color: #003366;
+            margin-right: 16px;
+            margin-top: 5px;
+            font-size: 16px;
+        }
+
+        .bullet-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #1f2937;
+            font-size: 16px;
+            margin: 0 0 4px 0;
+        }
+
+        .bullet-content p {
+            color: #4b5563;
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Footer */
+        .footer {
+            height: 50px;
+            background-color: #003366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="flex items-center space-x-2 mb-2">
+                <span
+                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wide">Role
+                    of CS</span>
+                <span class="text-gray-400 text-xs">/</span>
+                <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">Financial Reporting</span>
+            </div>
+            <h1 class="font-montserrat font-bold text-4xl navy-text leading-tight">
+                Compliance &amp; Coordination
+            </h1>
+        </div>
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Left Panel: RACI Matrix -->
+            <div class="visual-panel">
+                <div class="absolute top-6 left-6">
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Responsibility Matrix
+                        (RACI)</span>
+                </div>
+                <div class="raci-container">
+                    <div class="raci-header">
+                        <div>Activity / Process</div>
+                        <div>Mgmt</div>
+                        <div>CS</div>
+                        <div>Audit</div>
+                        <div>Board</div>
+                    </div>
+                    <!-- Row 1 -->
+                    <div class="raci-row">
+                        <div class="raci-label">Preparation of FS</div>
+                        <div class="raci-cell"><span class="role-badge badge-R">R</span></div>
+                        <div class="raci-cell"><span class="role-badge badge-C">C</span></div>
+                        <div class="raci-cell"><span class="role-badge badge-I">I</span></div>
+                        <div class="raci-cell"><span class="role-badge badge-A">A</span></div>
+                    </div>
+                    <!-- Row 2 -->
+                    <div class="raci-row">
+                        <div class="raci-label">Compliance Review (Sch III)</div>
+                        <div class="raci-cell"><span class="role-badge badge-C">C</span></div>
+                        <div class="raci-cell"><span class="role-badge badge-R">R</span></div>
+                        <div class="raci-cell"><span class="role-badge badge-C">C</span></div>
+                        <div class="raci-cell"><span class="role-badge badge-I">I</span></div>
+                    </div>
+                    <!-- Row 3 -->
+                    <div class="raci-row">
+                        <div class="raci-label">Board Approval Process</div>
+                        <div class="raci-cell"><span class="role-badge badge-I">I</span></div>
+                        <div class="raci-cell"><span class="role-badge badge-R">R</span></div>
+                        <div class="raci-cell"><span class="role-badge badge-I">I</span></div>
+                        <div class="raci-cell"><span class="role-badge badge-A">A</span></div>
+                    </div>
+                    <!-- Row 4 -->
+                    <div class="raci-row">
+                        <div class="raci-label">Audit Coordination</div>
+                        <div class="raci-cell"><span class="role-badge badge-C">C</span></div>
+                        <div class="raci-cell"><span class="role-badge badge-R">R</span></div>
+                        <div class="raci-cell"><span class="role-badge badge-R">R</span></div>
+                        <div class="raci-cell"><span class="role-badge badge-I">I</span></div>
+                    </div>
+                    <!-- Row 5 -->
+                    <div class="raci-row">
+                        <div class="raci-label">Statutory Filing (MCA)</div>
+                        <div class="raci-cell"><span class="role-badge badge-I">I</span></div>
+                        <div class="raci-cell"><span class="role-badge badge-R">R</span></div>
+                        <div class="raci-cell"><span class="role-badge badge-C">C</span></div>
+                        <div class="raci-cell"><span class="role-badge badge-A">A</span></div>
+                    </div>
+                </div>
+                <div class="legend">
+                    <div class="legend-item"><span class="role-badge badge-R"
+                            style="width:20px;height:20px;line-height:20px;font-size:10px;">R</span> Responsible</div>
+                    <div class="legend-item"><span class="role-badge badge-A"
+                            style="width:20px;height:20px;line-height:20px;font-size:10px;">A</span> Accountable</div>
+                    <div class="legend-item"><span class="role-badge badge-C"
+                            style="width:20px;height:20px;line-height:20px;font-size:10px;">C</span> Consulted</div>
+                    <div class="legend-item"><span class="role-badge badge-I"
+                            style="width:20px;height:20px;line-height:20px;font-size:10px;">I</span> Informed</div>
+                </div>
+            </div>
+            <!-- Right Panel: Bullets -->
+            <div class="text-panel">
+                <div class="mb-2">
+                    <h2 class="text-xl font-montserrat font-bold text-gray-800 mb-6 border-b-2 border-blue-100 pb-2">
+                        Verification Areas</h2>
+                </div>
+                <div class="bullet-item">
+                    <i class="fas fa-file-signature bullet-icon"></i>
+                    <div class="bullet-content">
+                        <h3>Statutory Filings</h3>
+                        <p>Ensuring timely filing of <strong>AOC-4/XBRL</strong> (Financials), <strong>MGT-7/7A</strong>
+                            (Annual Return), <strong>ADT-1</strong> (Auditor Appt), and charge documents (CHG-1/4).</p>
+                    </div>
+                </div>
+                <div class="bullet-item">
+                    <i class="fas fa-handshake bullet-icon"></i>
+                    <div class="bullet-content">
+                        <h3>Liaison &amp; Coordination</h3>
+                        <p>Acting as the critical bridge between Management, Statutory Auditors, and Regulators
+                            (MCA/SEBI) to resolve queries.</p>
+                    </div>
+                </div>
+                <div class="bullet-item">
+                    <i class="fas fa-search-plus bullet-icon"></i>
+                    <div class="bullet-content">
+                        <h3>Disclosure Verification</h3>
+                        <p>Verifying alignment with <strong>Schedule III</strong> formats, <strong>Ind AS/AS</strong>
+                            requirements, and ensuring all CARO-related data points are accurate.</p>
+                    </div>
+                </div>
+                <div class="bullet-item">
+                    <i class="fas fa-chart-pie bullet-icon"></i>
+                    <div class="bullet-content">
+                        <h3>Monitoring Limits</h3>
+                        <p>Tracking compliance with Section 180 (Borrowing limits), Section 73–76 (Deposits), and
+                            Section 197 (Managerial Remuneration caps).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+            <p>Scrutiny of Balance Sheet - CS Compliance Perspective</p>
+            <div class="flex items-center space-x-4">
+                <p>Companies Act, 2013</p>
+                <div class="h-3 w-px bg-white opacity-50"></div>
+                <p>Page 5</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

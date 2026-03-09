@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Related Party Disclosures</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .navy-bg {
+            background-color: #003366;
+        }
+
+        .navy-text {
+            color: #003366;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Header */
+        .header {
+            padding: 30px 60px 15px 60px;
+            border-bottom: 2px solid #E5E7EB;
+            flex-shrink: 0;
+        }
+
+        /* Content Area */
+        .content-area {
+            flex: 1;
+            padding: 30px 60px 40px 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            overflow: hidden;
+        }
+
+        /* Table Styles */
+        .table-container {
+            flex: 1;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .rpt-header {
+            background-color: #003366;
+            color: white;
+            padding: 12px 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 2fr 1fr 1fr 2fr;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .rpt-sub-header {
+            background-color: #f1f5f9;
+            color: #003366;
+            padding: 8px 20px;
+            font-weight: 700;
+            font-size: 13px;
+            border-bottom: 1px solid #e2e8f0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .rpt-row {
+            padding: 12px 20px;
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 13px;
+            color: #334155;
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 2fr 1fr 1fr 2fr;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .rpt-row:last-child {
+            border-bottom: none;
+        }
+
+        .rpt-row:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .rpt-row:hover {
+            background-color: #eff6ff;
+        }
+
+        /* Footer */
+        .footer {
+            height: 50px;
+            background-color: #003366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+            font-size: 12px;
+            flex-shrink: 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Scrollbar */
+        .scrollable-content {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .scrollable-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .scrollable-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .scrollable-content::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .status-badge.green {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+
+        .status-badge.blue {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-badge.yellow {
+            background-color: #fef9c3;
+            color: #854d0e;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="flex items-center space-x-2 mb-2">
+                <span
+                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wide">Compliance</span>
+                <span class="text-gray-400 text-xs">/</span>
+                <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">AS 18 &amp; Ind AS 24</span>
+            </div>
+            <h1 class="font-montserrat font-bold text-4xl navy-text leading-tight">
+                Related Party Disclosures
+            </h1>
+        </div>
+        <!-- Main Content -->
+        <div class="content-area">
+            <div
+                class="bg-white p-4 rounded-lg shadow-sm border border-gray-100 flex justify-between items-center mb-2">
+                <div class="flex items-center space-x-4">
+                    <div class="bg-blue-50 p-3 rounded-full text-blue-800">
+                        <i class="fas fa-handshake fa-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-800 text-sm">Key Compliance Requirement</h3>
+                        <p class="text-xs text-gray-500">All material transactions must be at Arm's Length &amp; in
+                            Ordinary Course of Business</p>
+                    </div>
+                </div>
+                <div class="flex space-x-6 text-xs text-gray-600">
+                    <div class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Audit
+                        Committee Approval</div>
+                    <div class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Board
+                        Approval</div>
+                    <div class="flex items-center"><i class="fas fa-info-circle text-blue-500 mr-2"></i> AOC-2
+                        Disclosure</div>
+                </div>
+            </div>
+            <!-- Table -->
+            <div class="table-container">
+                <div class="rpt-header">
+                    <span>Name of Related Party</span>
+                    <span>Relationship</span>
+                    <span>Nature of Transaction</span>
+                    <span class="text-right">Amount (₹ Lakhs)</span>
+                    <span class="text-right">Balance O/S</span>
+                    <span>Terms &amp; Justification</span>
+                </div>
+                <div class="scrollable-content">
+                    <!-- Category 1 -->
+                    <div class="rpt-sub-header">A. Enterprises exercising control / Group Companies</div>
+                    <div class="rpt-row">
+                        <span class="font-semibold">Apex Holdings Ltd.</span>
+                        <span>Holding Company</span>
+                        <span>Dividend Paid</span>
+                        <span class="text-right font-mono">150.00</span>
+                        <span class="text-right font-mono">-</span>
+                        <span class="text-xs">Declared at AGM, same as other shareholders.</span>
+                    </div>
+                    <div class="rpt-row">
+                        <span class="font-semibold">Apex Holdings Ltd.</span>
+                        <span>Holding Company</span>
+                        <span>Reimbursement of Exp.</span>
+                        <span class="text-right font-mono">25.50</span>
+                        <span class="text-right font-mono">5.20 (Cr)</span>
+                        <span class="text-xs">Cost-to-cost basis reimbursement.</span>
+                    </div>
+                    <div class="rpt-row">
+                        <span class="font-semibold">Zenith Tech Pvt Ltd.</span>
+                        <span>Subsidiary</span>
+                        <span>Sale of Goods</span>
+                        <span class="text-right font-mono">450.00</span>
+                        <span class="text-right font-mono">68.00 (Dr)</span>
+                        <span class="text-xs"><span class="status-badge green">Arm's Length</span> Market rates.</span>
+                    </div>
+                    <!-- Category 2 -->
+                    <div class="rpt-sub-header">B. Key Management Personnel (KMP) &amp; Relatives</div>
+                    <div class="rpt-row">
+                        <span class="font-semibold">Mr. Rajesh Sharma</span>
+                        <span>Managing Director</span>
+                        <span>Managerial Remuneration</span>
+                        <span class="text-right font-mono">120.00</span>
+                        <span class="text-right font-mono">10.00 (Cr)</span>
+                        <span class="text-xs">Approved by NRC &amp; Shareholders (Sec 197).</span>
+                    </div>
+                    <div class="rpt-row">
+                        <span class="font-semibold">Ms. Priya Sharma</span>
+                        <span>Relative of MD</span>
+                        <span>Lease Rent for Office</span>
+                        <span class="text-right font-mono">12.00</span>
+                        <span class="text-right font-mono">-</span>
+                        <span class="text-xs"><span class="status-badge green">Arm's Length</span> Based on valuation
+                            report.</span>
+                    </div>
+                    <!-- Category 3 -->
+                    <div class="rpt-sub-header">C. Entities under Common Control / Significant Influence</div>
+                    <div class="rpt-row">
+                        <span class="font-semibold">Global Logistics LLP</span>
+                        <span>Director is Partner</span>
+                        <span>Freight Charges</span>
+                        <span class="text-right font-mono">85.00</span>
+                        <span class="text-right font-mono">12.50 (Cr)</span>
+                        <span class="text-xs">Ordinary course; competitive bidding process.</span>
+                    </div>
+                    <div class="rpt-row">
+                        <span class="font-semibold">Sharma Foundation</span>
+                        <span>CSR Trust (KMP Trustee)</span>
+                        <span>CSR Contribution</span>
+                        <span class="text-right font-mono">25.00</span>
+                        <span class="text-right font-mono">-</span>
+                        <span class="text-xs">As per approved CSR Policy (Sec 135).</span>
+                    </div>
+                    <div class="rpt-row">
+                        <span class="font-semibold">TechFlow Solutions</span>
+                        <span>Associate Company</span>
+                        <span>Software Purchase</span>
+                        <span class="text-right font-mono">200.00</span>
+                        <span class="text-right font-mono">40.00 (Cr)</span>
+                        <span class="text-xs"><span class="status-badge yellow">Specific Approval</span> Tech expertise
+                            required.</span>
+                    </div>
+                </div>
+                <!-- Total / Footer of Table -->
+                <div class="bg-gray-100 p-3 border-t border-gray-200 text-xs text-gray-500 flex justify-between">
+                    <span>*Dr = Debit (Receivable), Cr = Credit (Payable)</span>
+                    <span>Note: All material transactions approved by Audit Committee under Section 177</span>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+            <p>Scrutiny of Balance Sheet - CS Compliance Perspective</p>
+            <div class="flex items-center space-x-4">
+                <p>Companies Act 2013, AS 18 / Ind AS 24</p>
+                <div class="h-3 w-px bg-white opacity-50"></div>
+                <p>Page 24</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

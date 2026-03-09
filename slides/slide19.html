@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Notes to Accounts: Deep-Dive Disclosures</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .navy-bg {
+            background-color: #003366;
+        }
+
+        .text-navy {
+            color: #003366;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Header Styling */
+        .header {
+            padding: 40px 60px 20px 60px;
+            border-bottom: 2px solid #E5E7EB;
+        }
+
+        /* List Styling */
+        .custom-list-item {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+        }
+
+        .custom-list-item::before {
+            content: '\f058';
+            /* fa-circle-check */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: #003366;
+            font-size: 16px;
+        }
+
+        /* Right Panel Styling */
+        .visual-panel {
+            background-color: #f8fafc;
+            border-left: 1px solid #e2e8f0;
+            position: relative;
+        }
+
+        .note-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: relative;
+            font-family: 'Courier New', monospace;
+        }
+
+        .callout-line {
+            position: absolute;
+            height: 2px;
+            background-color: #003366;
+            z-index: 10;
+        }
+
+        .callout-dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #003366;
+            border-radius: 50%;
+            z-index: 11;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: #003366;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+            color: white;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="flex items-center space-x-2 mb-2">
+                <span
+                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wide">Analysis</span>
+                <span class="text-gray-400 text-xs">/</span>
+                <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">Financial Statements</span>
+            </div>
+            <h1 class="font-montserrat font-bold text-4xl text-navy leading-tight">
+                Notes to Accounts: Deep-Dive Disclosures
+            </h1>
+        </div>
+        <!-- Main Content -->
+        <div class="flex flex-1 overflow-hidden">
+            <!-- Left Column: Content -->
+            <div class="w-7/12 p-12 pr-8 flex flex-col justify-center">
+                <div class="mb-6">
+                    <h2 class="font-montserrat font-bold text-lg text-gray-800 mb-3 border-l-4 border-blue-800 pl-3">
+                        Crucial Components for Review
+                    </h2>
+                    <div class="text-gray-600 leading-relaxed text-sm">
+                        <div class="custom-list-item">
+                            <p><strong>Accounting Policies &amp; Estimates:</strong> Basis of preparation, revenue
+                                recognition, critical judgments, and changes in policies.</p>
+                        </div>
+                        <div class="custom-list-item">
+                            <p><strong>Detailed Schedules:</strong> PPE movement, Working Capital ageing
+                                (receivables/payables), provision analysis, and contingent liabilities.</p>
+                        </div>
+                        <div class="custom-list-item">
+                            <p><strong>Specific Disclosures:</strong> Related Party Transactions (RPT), CSR spending vs
+                                obligation, and ratio analysis variance explanations.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="font-montserrat font-bold text-lg text-gray-800 mb-3 border-l-4 border-blue-800 pl-3">
+                        CS Verification &amp; Compliance Trail
+                    </h2>
+                    <div class="text-gray-600 leading-relaxed text-sm">
+                        <div class="custom-list-item">
+                            <p><strong>RPT Compliance (Sec 188):</strong> Verify Note disclosures against Audit
+                                Committee minutes and Omnibus approvals.</p>
+                        </div>
+                        <div class="custom-list-item">
+                            <p><strong>Loans &amp; Investments (Sec 185/186):</strong> Check limits, purpose, and board
+                                resolutions matching the Note schedules.</p>
+                        </div>
+                        <div class="custom-list-item">
+                            <p><strong>CSR (Sec 135):</strong> Cross-verify unspent amounts in Notes with transfer to
+                                Unspent CSR Account.</p>
+                        </div>
+                        <div class="custom-list-item">
+                            <p><strong>Deposits (Sec 73):</strong> Ensure no "deemed deposits" hide under 'Other Current
+                                Liabilities'.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Column: Visual -->
+            <div class="w-5/12 visual-panel p-8 flex flex-col justify-center items-center relative">
+                <!-- Sample Note Visual -->
+                <div class="relative w-full max-w-sm">
+                    <!-- Abstract Note Representation -->
+                    <div class="note-card p-4 text-xs text-gray-500 mb-4 transform -rotate-1 z-10">
+                        <div class="font-bold text-gray-800 mb-2 border-b border-gray-200 pb-1">Note 34: Related Party
+                            Disclosures</div>
+                        <div class="flex justify-between mb-1">
+                            <span>ABC Pvt Ltd (Holding Co)</span>
+                            <span class="font-semibold">₹ 50.00 Cr</span>
+                        </div>
+                        <div class="flex justify-between mb-1">
+                            <span>Nature: Loan given</span>
+                            <span>Interest: 8%</span>
+                        </div>
+                        <div class="text-gray-400 text-[10px] mt-2 italic">Ref: Board Resolution dt. 15/04/202X</div>
+                    </div>
+                    <div class="note-card p-4 text-xs text-gray-500 mb-4 transform rotate-2 z-0 -mt-2">
+                        <div class="font-bold text-gray-800 mb-2 border-b border-gray-200 pb-1">Note 42: Contingent
+                            Liabilities</div>
+                        <div class="flex justify-between mb-1">
+                            <span>Disputed Tax Demand (AY 20-21)</span>
+                            <span class="font-semibold">₹ 12.50 Cr</span>
+                        </div>
+                        <div class="text-[10px] leading-tight">Appeal pending before CIT(A). Management expects
+                            favorable outcome based on legal opinion.</div>
+                    </div>
+                    <div class="note-card p-4 text-xs text-gray-500 transform -rotate-1 z-20 -mt-2">
+                        <div class="font-bold text-gray-800 mb-2 border-b border-gray-200 pb-1">Note 51: Analytical
+                            Ratios</div>
+                        <div class="grid grid-cols-3 gap-2 text-center text-[10px]">
+                            <div class="bg-gray-50 p-1 rounded">
+                                <div class="font-semibold">Current Ratio</div>
+                                <div class="text-blue-800 font-bold">1.8x</div>
+                            </div>
+                            <div class="bg-gray-50 p-1 rounded">
+                                <div class="font-semibold">Prev Year</div>
+                                <div class="text-gray-600">1.2x</div>
+                            </div>
+                            <div class="bg-red-50 p-1 rounded border border-red-100">
+                                <div class="font-semibold text-red-700">Var: 50%</div>
+                            </div>
+                        </div>
+                        <div class="text-[9px] mt-2 text-gray-500">Reason: Infusion of equity capital during the year
+                            used to pay off short term debt.</div>
+                    </div>
+                    <!-- Callout Badges -->
+                    <div
+                        class="absolute -right-4 top-0 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded shadow-lg transform rotate-6">
+                        Sec 188 Check
+                    </div>
+                    <div
+                        class="absolute -left-2 top-1/3 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded shadow-lg transform -rotate-6">
+                        Legal Risk
+                    </div>
+                    <div
+                        class="absolute -right-2 bottom-4 bg-green-600 text-white text-[10px] font-bold px-2 py-1 rounded shadow-lg transform rotate-3">
+                        Sch III Expl.
+                    </div>
+                </div>
+                <!-- Context Label -->
+                <div class="mt-6 text-center">
+                    <p class="text-navy font-bold text-sm uppercase tracking-wider mb-1">Compliance Audit</p>
+                    <p class="text-gray-500 text-xs">Cross-referencing Notes with Statutory Registers</p>
+                </div>
+                <!-- Background Decoration -->
+                <div class="absolute top-10 right-10 text-9xl text-gray-200 opacity-20 pointer-events-none">
+                    <i class="fas fa-magnifying-glass-chart"></i>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+            <p>Scrutiny of Balance Sheet - CS Compliance Perspective</p>
+            <div class="flex items-center space-x-4">
+                <p>Companies Act, 2013</p>
+                <div class="h-3 w-px bg-white opacity-50"></div>
+                <p>Page 19</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Ratio Analysis: What, Why, How</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .navy-bg {
+            background-color: #003366;
+        }
+
+        .navy-text {
+            color: #003366;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Header */
+        .header {
+            padding: 30px 60px 15px 60px;
+            border-bottom: 2px solid #E5E7EB;
+            flex-shrink: 0;
+        }
+
+        /* Content Area */
+        .content-area {
+            flex: 1;
+            padding: 20px 60px 40px 60px;
+            display: flex;
+            gap: 40px;
+            overflow: hidden;
+        }
+
+        /* Left Panel - Concepts */
+        .concept-panel {
+            width: 35%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .concept-card {
+            background: #f8fafc;
+            border-left: 4px solid #003366;
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .concept-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #003366;
+            margin-bottom: 8px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .concept-text {
+            font-size: 13px;
+            color: #4b5563;
+            line-height: 1.5;
+        }
+
+        /* Right Panel - Table */
+        .table-container {
+            flex: 1;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .table-header {
+            background-color: #003366;
+            color: white;
+            padding: 12px 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .table-row-header {
+            display: grid;
+            grid-template-columns: 1.5fr 2.5fr 1.5fr;
+            padding: 10px 20px;
+            background-color: #f1f5f9;
+            font-weight: 700;
+            font-size: 13px;
+            color: #003366;
+            border-bottom: 1px solid #e2e8f0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 1.5fr 2.5fr 1.5fr;
+            padding: 12px 20px;
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 13px;
+            align-items: center;
+        }
+
+        .table-row:last-child {
+            border-bottom: none;
+        }
+
+        .table-row:nth-child(even) {
+            background-color: #fcfcfc;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .badge-liquidity {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+
+        .badge-solvency {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
+        .formula-box {
+            font-family: 'Courier New', monospace;
+            background-color: #f3f4f6;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #374151;
+            display: inline-block;
+        }
+
+        /* Footer */
+        .footer {
+            height: 50px;
+            background-color: #003366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+            font-size: 12px;
+            flex-shrink: 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="flex items-center space-x-2 mb-2">
+                <span
+                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wide">Analysis</span>
+                <span class="text-gray-400 text-xs">/</span>
+                <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">Financial Ratios</span>
+            </div>
+            <h1 class="font-montserrat font-bold text-4xl navy-text leading-tight">
+                Ratio Analysis: What, Why, How
+            </h1>
+        </div>
+        <!-- Main Content -->
+        <div class="content-area">
+            <!-- Left Panel: Concepts -->
+            <div class="concept-panel">
+                <div class="concept-card">
+                    <div class="concept-title">
+                        <i class="fas fa-lightbulb text-yellow-500"></i>
+                        Definition
+                    </div>
+                    <p class="concept-text">
+                        Mathematical relationships that contextualize absolute financial numbers to assess performance,
+                        health, and efficiency. Provides meaning to standalone figures.
+                    </p>
+                </div>
+                <div class="concept-card">
+                    <div class="concept-title">
+                        <i class="fas fa-bullseye text-red-500"></i>
+                        Purpose &amp; Utility
+                    </div>
+                    <p class="concept-text">
+                    <ul class="list-disc pl-4 space-y-1">
+                        <li><strong>Comparability:</strong> Benchmarking against past years (Trend) or industry peers
+                            (Cross-sectional).</li>
+                        <li><strong>Covenant Monitoring:</strong> Tracking debt limits (e.g., Debt/Equity &lt; 2:1).
+                        </li>
+                        <li><strong>Statutory:</strong> Schedule III mandates disclosure of key ratios &amp; explanation
+                            for &gt;25% change.</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="concept-card" style="border-left-color: #ef4444;">
+                    <div class="concept-title" style="color: #b91c1c;">
+                        <i class="fas fa-exclamation-triangle text-red-500"></i>
+                        CS Cautions
+                    </div>
+                    <p class="concept-text">
+                        Ensure consistency in accounting policies. Adjust for seasonality and one-off items (abnormal
+                        gains/losses) before interpretation.
+                    </p>
+                </div>
+            </div>
+            <!-- Right Panel: Table -->
+            <div class="table-container">
+                <div class="table-header">
+                    <span>Key Liquidity &amp; Solvency Ratios</span>
+                    <i class="fas fa-calculator opacity-50"></i>
+                </div>
+                <div class="table-row-header">
+                    <div>Ratio</div>
+                    <div>Formula</div>
+                    <div>Significance</div>
+                </div>
+                <!-- Liquidity Ratios -->
+                <div class="table-row">
+                    <div>
+                        <span class="category-badge badge-liquidity">Liquidity</span>
+                        <div class="font-bold text-gray-800">Current Ratio</div>
+                    </div>
+                    <div>
+                        <span class="formula-box">Current Assets / Current Liabilities</span>
+                    </div>
+                    <div class="text-gray-600">Ability to pay short-term obligations. Ideal 2:1.</div>
+                </div>
+                <div class="table-row">
+                    <div>
+                        <span class="category-badge badge-liquidity">Liquidity</span>
+                        <div class="font-bold text-gray-800">Quick Ratio</div>
+                    </div>
+                    <div>
+                        <span class="formula-box">(CA - Inventory - Prepaids) / CL</span>
+                    </div>
+                    <div class="text-gray-600">Immediate liquidity excluding less liquid assets. Ideal 1:1.</div>
+                </div>
+                <div class="table-row">
+                    <div>
+                        <span class="category-badge badge-liquidity">Liquidity</span>
+                        <div class="font-bold text-gray-800">Cash Ratio</div>
+                    </div>
+                    <div>
+                        <span class="formula-box">(Cash + Mkt Securities) / CL</span>
+                    </div>
+                    <div class="text-gray-600">Most conservative liquidity measure.</div>
+                </div>
+                <!-- Solvency Ratios -->
+                <div class="table-row">
+                    <div>
+                        <span class="category-badge badge-solvency">Solvency</span>
+                        <div class="font-bold text-gray-800">Debt-Equity Ratio</div>
+                    </div>
+                    <div>
+                        <span class="formula-box">Total Debt / Total Equity</span>
+                    </div>
+                    <div class="text-gray-600">Financial leverage. Lower is safer.</div>
+                </div>
+                <div class="table-row">
+                    <div>
+                        <span class="category-badge badge-solvency">Solvency</span>
+                        <div class="font-bold text-gray-800">Interest Coverage</div>
+                    </div>
+                    <div>
+                        <span class="formula-box">EBIT / Finance Cost</span>
+                    </div>
+                    <div class="text-gray-600">Ability to service interest from profits.</div>
+                </div>
+                <div class="table-row">
+                    <div>
+                        <span class="category-badge badge-solvency">Solvency</span>
+                        <div class="font-bold text-gray-800">DSCR</div>
+                    </div>
+                    <div>
+                        <span class="formula-box">(EBITDA - Tax) / (Int + Principal)</span>
+                    </div>
+                    <div class="text-gray-600">Ability to service total debt obligations.</div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+            <p>Scrutiny of Balance Sheet - CS Compliance Perspective</p>
+            <div class="flex items-center space-x-4">
+                <p>Schedule III, Companies Act 2013</p>
+                <div class="h-3 w-px bg-white opacity-50"></div>
+                <p>Page 10</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

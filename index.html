@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presentation — Slide Viewer</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: #1a1a1a;
+      font-family: system-ui, -apple-system, sans-serif;
+      display: flex;
+      flex-direction: column;
+      color: #e5e5e5;
+    }
+
+    .viewer-header {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      background: #262626;
+      border-bottom: 1px solid #404040;
+    }
+
+    .slide-info {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .slide-info span {
+      color: #a3a3a3;
+      font-weight: 400;
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-controls button {
+      padding: 10px 18px;
+      border: 1px solid #404040;
+      background: #333;
+      color: #e5e5e5;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .nav-controls button:hover:not(:disabled) {
+      background: #404040;
+      border-color: #525252;
+    }
+
+    .nav-controls button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .nav-controls button.primary {
+      background: #003366;
+      border-color: #003366;
+    }
+
+    .nav-controls button.primary:hover:not(:disabled) {
+      background: #004080;
+      border-color: #004080;
+    }
+
+    .frame-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .slide-scale-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .slide-scale-inner {
+      width: 1280px;
+      height: 720px;
+      flex-shrink: 0;
+      transform-origin: center center;
+    }
+
+    .frame-wrap iframe {
+      border: none;
+      background: #fff;
+      display: block;
+      width: 1280px;
+      height: 720px;
+    }
+
+    /* Presentation mode: hide nav, slide fills viewport */
+    body.presentation-mode .viewer-header,
+    body.presentation-mode .keyboard-hint {
+      display: none;
+    }
+
+    body.presentation-mode .frame-wrap {
+      padding: 0;
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+    }
+
+    body.presentation-mode .slide-scale-wrap {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .keyboard-hint {
+      flex-shrink: 0;
+      padding: 8px 20px;
+      font-size: 12px;
+      color: #737373;
+      background: #262626;
+      border-top: 1px solid #404040;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="viewer-header">
+    <div class="slide-info">
+      Slide <span id="current-num">1</span> of <span id="total-num">26</span>
+    </div>
+    <nav class="nav-controls">
+      <button type="button" id="btn-first" title="First slide">First</button>
+      <button type="button" id="btn-prev" title="Previous (←)">Previous</button>
+      <button type="button" id="btn-next" class="primary" title="Next (→)">Next</button>
+      <button type="button" id="btn-last" title="Last slide">Last</button>
+    </nav>
+  </header>
+  <main class="frame-wrap">
+    <div class="slide-scale-wrap" id="slide-scale-wrap">
+      <div class="slide-scale-inner" id="slide-scale-inner">
+        <iframe id="slide-frame" title="Current slide" src="slides/slide1.html"></iframe>
+      </div>
+    </div>
+  </main>
+  <footer class="keyboard-hint">
+    ← → Navigate · F Full screen (slide only) · Esc Exit full screen · Number + Enter to jump to slide
+  </footer>
+
+  <script>
+    (function () {
+      const TOTAL_SLIDES = 26;
+      const SLIDE_W = 1280;
+      const SLIDE_H = 720;
+      const frame = document.getElementById('slide-frame');
+      const scaleWrap = document.getElementById('slide-scale-wrap');
+      const scaleInner = document.getElementById('slide-scale-inner');
+      const currentNumEl = document.getElementById('current-num');
+      const totalNumEl = document.getElementById('total-num');
+      const btnFirst = document.getElementById('btn-first');
+      const btnPrev = document.getElementById('btn-prev');
+      const btnNext = document.getElementById('btn-next');
+      const btnLast = document.getElementById('btn-last');
+
+      totalNumEl.textContent = TOTAL_SLIDES;
+
+      function fitSlide() {
+        const w = scaleWrap.clientWidth;
+        const h = scaleWrap.clientHeight;
+        const scale = Math.min(w / SLIDE_W, h / SLIDE_H);
+        scaleInner.style.transform = 'scale(' + scale + ')';
+      }
+
+      function togglePresentationMode() {
+        document.body.classList.toggle('presentation-mode');
+        setTimeout(fitSlide, 50);
+      }
+
+      window.addEventListener('resize', fitSlide);
+      window.addEventListener('load', fitSlide);
+      setTimeout(fitSlide, 100);
+
+      function getSlideFromHash() {
+        const hash = window.location.hash.slice(1);
+        const n = parseInt(hash, 10);
+        if (!isNaN(n) && n >= 1 && n <= TOTAL_SLIDES) return n;
+        return 1;
+      }
+
+      function setSlide(n) {
+        const num = Math.max(1, Math.min(TOTAL_SLIDES, n));
+        window.location.hash = String(num);
+        frame.src = 'slides/slide' + num + '.html';
+        currentNumEl.textContent = num;
+        btnFirst.disabled = num === 1;
+        btnPrev.disabled = num === 1;
+        btnNext.disabled = num === TOTAL_SLIDES;
+        btnLast.disabled = num === TOTAL_SLIDES;
+        return num;
+      }
+
+      function goPrev() { setSlide(getSlideFromHash() - 1); }
+      function goNext() { setSlide(getSlideFromHash() + 1); }
+
+      // Initial load from hash
+      setSlide(getSlideFromHash());
+
+      // Hash change (e.g. back/forward or manual edit)
+      window.addEventListener('hashchange', function () {
+        setSlide(getSlideFromHash());
+      });
+
+      btnFirst.addEventListener('click', function () { setSlide(1); });
+      btnPrev.addEventListener('click', goPrev);
+      btnNext.addEventListener('click', goNext);
+      btnLast.addEventListener('click', function () { setSlide(TOTAL_SLIDES); });
+
+      // Keyboard
+      let digitBuffer = '';
+      let digitTimeout = null;
+
+      document.addEventListener('keydown', function (e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        switch (e.key) {
+          case 'Escape':
+            e.preventDefault();
+            document.body.classList.remove('presentation-mode');
+            setTimeout(fitSlide, 50);
+            break;
+          case 'f':
+          case 'F':
+            e.preventDefault();
+            togglePresentationMode();
+            break;
+          case 'ArrowLeft':
+            e.preventDefault();
+            goPrev();
+            break;
+          case 'ArrowRight':
+          case ' ':
+            e.preventDefault();
+            goNext();
+            break;
+          case 'Home':
+            e.preventDefault();
+            setSlide(1);
+            break;
+          case 'End':
+            e.preventDefault();
+            setSlide(TOTAL_SLIDES);
+            break;
+          case 'Enter':
+            if (digitBuffer) {
+              e.preventDefault();
+              const n = parseInt(digitBuffer, 10);
+              if (!isNaN(n)) setSlide(n);
+              digitBuffer = '';
+              if (digitTimeout) clearTimeout(digitTimeout);
+              digitTimeout = null;
+            }
+            break;
+          default:
+            if (e.key >= '0' && e.key <= '9') {
+              digitBuffer += e.key;
+              if (digitTimeout) clearTimeout(digitTimeout);
+              digitTimeout = setTimeout(function () {
+                const n = parseInt(digitBuffer, 10);
+                if (!isNaN(n)) setSlide(n);
+                digitBuffer = '';
+                digitTimeout = null;
+              }, 800);
+            }
+            break;
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>

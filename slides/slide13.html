@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Trend Analysis: CS Lens and Insights</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .navy-bg {
+            background-color: #003366;
+        }
+
+        .text-navy {
+            color: #003366;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Header Styling */
+        .header {
+            padding: 30px 60px 15px 60px;
+            border-bottom: 2px solid #E5E7EB;
+        }
+
+        /* List Styling */
+        .custom-list-item {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 14px;
+        }
+
+        .custom-list-item::before {
+            content: '\f058';
+            /* fa-circle-check */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: #003366;
+            font-size: 16px;
+        }
+
+        /* Right Panel Styling */
+        .visual-panel {
+            background-color: #f8fafc;
+            border-left: 1px solid #e2e8f0;
+        }
+
+        /* Table Styling */
+        .trend-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            background-color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .trend-table th {
+            background-color: #003366;
+            color: white;
+            padding: 10px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .trend-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e5e7eb;
+            color: #374151;
+        }
+
+        .trend-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .trend-table tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        .flag-red {
+            color: #dc2626;
+            font-weight: bold;
+        }
+
+        .flag-green {
+            color: #059669;
+            font-weight: bold;
+        }
+
+        /* Insight Card */
+        .insight-card {
+            background-color: white;
+            border-left: 4px solid #003366;
+            padding: 12px;
+            margin-bottom: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background-color: #003366;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+            color: white;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="flex items-center space-x-2 mb-2">
+                <span
+                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wide">Analysis</span>
+                <span class="text-gray-400 text-xs">/</span>
+                <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">Trend Analysis</span>
+            </div>
+            <h1 class="font-montserrat font-bold text-4xl text-navy leading-tight">
+                CS Lens and Insights
+            </h1>
+        </div>
+        <!-- Main Content -->
+        <div class="flex flex-1 overflow-hidden">
+            <!-- Left Column: Content -->
+            <div class="w-6/12 p-10 pr-6 flex flex-col">
+                <div class="mb-6">
+                    <h2 class="font-montserrat font-bold text-xl text-gray-800 mb-4 border-l-4 border-blue-800 pl-3">
+                        Monitoring Governance Signals
+                    </h2>
+                    <div class="text-gray-600 leading-relaxed text-sm">
+                        <div class="custom-list-item">
+                            <p><strong>Related Party Transactions (RPTs):</strong> Monitor year-on-year growth in RPT
+                                volumes. A spike in RPTs (purchases/sales) relative to turnover may indicate profit
+                                shifting or governance risks requiring Audit Committee scrutiny.</p>
+                        </div>
+                        <div class="custom-list-item">
+                            <p><strong>Ratio Swings (&gt;25%):</strong> Under Schedule III amendments, any change in key
+                                ratios (like Debt-Equity, Current Ratio) exceeding 25% compared to the previous year
+                                requires specific explanation in Notes to Accounts.</p>
+                        </div>
+                        <div class="custom-list-item">
+                            <p><strong>CSR Spend vs. Obligation:</strong> Track unspent CSR amounts over 3 years.
+                                Recurring shortfalls may trigger penalties or require transfer to unspent CSR
+                                accounts/Schedule VII funds.</p>
+                        </div>
+                        <div class="custom-list-item">
+                            <p><strong>Capitalized Costs Trend:</strong> Check the ratio of Capital Work-in-Progress
+                                (CWIP) to PPE additions. Long-standing CWIP without capitalization suggests project
+                                delays or potential impairment triggers.</p>
+                        </div>
+                        <div class="custom-list-item">
+                            <p><strong>Borrowings vs. Utilization:</strong> Compare borrowing trends with asset
+                                creation. Rising debt without corresponding asset growth may signal funds diversion or
+                                operating losses.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Column: Visual -->
+            <div class="w-6/12 visual-panel p-10 flex flex-col relative overflow-y-auto">
+                <h3 class="font-montserrat font-bold text-lg text-navy mb-4">
+                    <i class="fas fa-chart-line mr-2"></i>Trend Scrutiny Example
+                </h3>
+                <!-- Trend Table -->
+                <div class="mb-6">
+                    <table class="trend-table">
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>FY 2023</th>
+                                <th>FY 2024</th>
+                                <th>% Change</th>
+                                <th>CS Flag</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Turnover</td>
+                                <td>1,000 Cr</td>
+                                <td>1,200 Cr</td>
+                                <td class="flag-green">+20%</td>
+                                <td>Normal</td>
+                            </tr>
+                            <tr>
+                                <td>RPT Sales</td>
+                                <td>50 Cr</td>
+                                <td>150 Cr</td>
+                                <td class="flag-red">+200%</td>
+                                <td><i class="fas fa-exclamation-triangle text-red-500 mr-1"></i>Investigate</td>
+                            </tr>
+                            <tr>
+                                <td>Current Ratio</td>
+                                <td>1.5</td>
+                                <td>1.0</td>
+                                <td class="flag-red">-33%</td>
+                                <td><i class="fas fa-file-alt text-blue-500 mr-1"></i>Disclose Note</td>
+                            </tr>
+                            <tr>
+                                <td>CSR Spend</td>
+                                <td>2.5 Cr</td>
+                                <td>1.8 Cr</td>
+                                <td class="flag-red">-28%</td>
+                                <td><i class="fas fa-gavel text-red-500 mr-1"></i>Penalty Risk</td>
+                            </tr>
+                            <tr>
+                                <td>Finance Cost</td>
+                                <td>80 Cr</td>
+                                <td>85 Cr</td>
+                                <td>+6.25%</td>
+                                <td>Normal</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Commentary Callouts -->
+                <div class="space-y-3">
+                    <div class="insight-card">
+                        <div class="flex items-start">
+                            <i class="fas fa-search text-navy mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-bold text-sm text-gray-800">RPT Anomaly</h4>
+                                <p class="text-xs text-gray-600 mt-1">RPT Sales grew 200% while Turnover grew only 20%.
+                                    Verify arm's length pricing and Omnibus approval limits.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="insight-card">
+                        <div class="flex items-start">
+                            <i class="fas fa-pen-nib text-navy mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-bold text-sm text-gray-800">Schedule III Disclosure</h4>
+                                <p class="text-xs text-gray-600 mt-1">Current Ratio fell by 33% (&gt;25% threshold).
+                                    Draft explanation: "Mainly due to reclassification of long-term debt to current
+                                    maturities."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Decorative Icon -->
+                <div class="absolute bottom-4 right-4 opacity-5">
+                    <i class="fas fa-magnifying-glass-chart text-8xl"></i>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+            <p>Scrutiny of Balance Sheet - CS Compliance Perspective</p>
+            <div class="flex items-center space-x-4">
+                <p>Companies Act, 2013</p>
+                <div class="h-3 w-px bg-white opacity-50"></div>
+                <p>Page 13</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

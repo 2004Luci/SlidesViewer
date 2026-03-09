@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>How to Read FS: A Logical Process</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .navy-text {
+            color: #003366;
+        }
+
+        .navy-bg {
+            background-color: #003366;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Header */
+        .header {
+            padding: 30px 60px 15px 60px;
+            border-bottom: 2px solid #E5E7EB;
+            flex-shrink: 0;
+        }
+
+        /* Content Area */
+        .content-area {
+            flex: 1;
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #f8fafc;
+            position: relative;
+        }
+
+        /* Process Steps */
+        .process-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            width: 18%;
+            /* 5 cards with spacing */
+            padding: 20px;
+            position: relative;
+            border-top: 4px solid #003366;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: #003366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            border: 4px solid #f8fafc;
+            z-index: 10;
+        }
+
+        .step-icon {
+            font-size: 28px;
+            color: #003366;
+            margin-bottom: 15px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .step-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: #1f2937;
+            text-align: center;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .step-desc {
+            font-size: 13px;
+            color: #4b5563;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        /* Connecting Line */
+        .connecting-line {
+            position: absolute;
+            top: 0;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            /* Thickness of line */
+            background-color: #e2e8f0;
+            z-index: 1;
+        }
+
+        .connector-arrow {
+            position: absolute;
+            top: 50%;
+            right: -15px;
+            transform: translateY(-50%);
+            color: #cbd5e1;
+            font-size: 20px;
+            display: none;
+            /* Hidden for the new design, using line instead */
+        }
+
+        /* Dashed Line behind cards */
+        .flow-line-container {
+            position: absolute;
+            top: 0;
+            /* Aligns with top of cards effectively via transform */
+            left: 9%;
+            right: 9%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .flow-line {
+            border-top: 3px dashed #cbd5e1;
+            width: 100%;
+            position: absolute;
+            top: 0;
+        }
+
+        /* Feature Box */
+        .feature-box {
+            background-color: #eff6ff;
+            border-radius: 6px;
+            padding: 8px;
+            margin-top: auto;
+            border: 1px solid #bfdbfe;
+        }
+
+        .feature-text {
+            font-size: 11px;
+            color: #1e40af;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Footer */
+        .footer {
+            height: 50px;
+            background-color: #003366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+            font-size: 12px;
+            flex-shrink: 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="flex items-center space-x-2 mb-2">
+                <span
+                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wide">Methodology</span>
+                <span class="text-gray-400 text-xs">/</span>
+                <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">Interpretation</span>
+            </div>
+            <h1 class="font-montserrat font-bold text-4xl navy-text leading-tight">
+                How to Read FS: A Logical Process
+            </h1>
+        </div>
+        <!-- Main Content -->
+        <div class="content-area">
+            <!-- Flow Line Background -->
+            <div class="flow-line-container">
+                <div class="flow-line"></div>
+            </div>
+            <!-- Process Steps -->
+            <div class="process-container">
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <h3 class="step-title">Auditor's Report &amp; KAMs</h3>
+                    <p class="step-desc">
+                        Start here. Check for Qualified Opinions, Adverse remarks, or Emphasis of Matter. Review 'Key
+                        Audit Matters' (KAMs) for risk areas.
+                    </p>
+                    <div class="feature-box">
+                        <p class="feature-text">Goal: Assess Reliability</p>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="step-title">High-Level P&amp;L/BS Scan</h3>
+                    <p class="step-desc">
+                        Review Revenue &amp; Margins (P&amp;L) → Working Capital &amp; Debt (BS) → Cash from Operations
+                        (CFS).
+                    </p>
+                    <div class="feature-box">
+                        <p class="feature-text">Goal: Health Check</p>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <h3 class="step-title">Cross-Reference Notes</h3>
+                    <p class="step-desc">
+                        Don't just read numbers. Read Accounting Policies, Contingent Liabilities, Commitments, and
+                        detailed schedules.
+                    </p>
+                    <div class="feature-box">
+                        <p class="feature-text">Goal: Detail &amp; Context</p>
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="step-title">Internal Consistency</h3>
+                    <p class="step-desc">
+                        Perform tie-offs: BS Closing Balances vs Statement of Changes in Equity; Accruals vs Cash Flow
+                        logic.
+                    </p>
+                    <div class="feature-box">
+                        <p class="feature-text">Goal: Verify Integrity</p>
+                    </div>
+                </div>
+                <!-- Step 5 -->
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <div class="step-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3 class="step-title">Map to Law (Compliance)</h3>
+                    <p class="step-desc">
+                        Check specific sections: Sec 185/186 (Loans), Sec 135 (CSR), Sec 188 (RPTs), and Borrowing
+                        limits.
+                    </p>
+                    <div class="feature-box">
+                        <p class="feature-text">Goal: Ensure Governance</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Bottom Context -->
+            <div class="mt-12 bg-white rounded-lg p-6 shadow-sm border-l-4 border-blue-800 flex items-start">
+                <div class="text-blue-800 text-2xl mr-4 mt-1">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <div>
+                    <h4 class="font-montserrat font-bold text-gray-800 text-lg mb-1">CS Perspective</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        A Company Secretary should not view Financial Statements in isolation. The scrutiny must connect
+                        the financial data back to the <strong>Board's Report</strong>, <strong>Minutes of
+                            Meetings</strong>, and <strong>Statutory Registers</strong> to ensure a holistic view of
+                        corporate governance.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+            <p>Scrutiny of Balance Sheet - CS Compliance Perspective</p>
+            <div class="flex items-center space-x-4">
+                <p>Logical Framework</p>
+                <div class="h-3 w-px bg-white opacity-50"></div>
+                <p>Page 8</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

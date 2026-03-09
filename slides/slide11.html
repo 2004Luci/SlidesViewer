@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Key Profitability &amp; Efficiency Ratios</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .navy-bg {
+            background-color: #003366;
+        }
+
+        .navy-text {
+            color: #003366;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Header */
+        .header {
+            padding: 30px 60px 15px 60px;
+            border-bottom: 2px solid #E5E7EB;
+            flex-shrink: 0;
+        }
+
+        /* Content Area */
+        .content-area {
+            flex: 1;
+            padding: 20px 60px 40px 60px;
+            display: flex;
+            gap: 40px;
+            overflow: hidden;
+        }
+
+        /* Table Styles */
+        .table-container {
+            flex: 1;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bs-header {
+            background-color: #003366;
+            color: white;
+            padding: 12px 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bs-sub-header {
+            background-color: #f1f5f9;
+            color: #003366;
+            padding: 10px 20px;
+            font-weight: 700;
+            font-size: 13px;
+            border-bottom: 1px solid #e2e8f0;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bs-row {
+            padding: 12px 20px;
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 13px;
+            color: #4b5563;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bs-row:last-child {
+            border-bottom: none;
+        }
+
+        .bs-row:hover {
+            background-color: #f8fafc;
+        }
+
+        .ratio-name {
+            font-weight: 600;
+            color: #1f2937;
+            font-size: 14px;
+        }
+
+        .ratio-formula {
+            font-size: 11px;
+            color: #64748b;
+            font-style: italic;
+            margin-top: 2px;
+        }
+
+        .calc-display {
+            text-align: right;
+        }
+
+        .calc-value {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #003366;
+            font-size: 15px;
+        }
+
+        .calc-detail {
+            font-size: 11px;
+            color: #94a3b8;
+        }
+
+        /* Footer */
+        .footer {
+            height: 50px;
+            background-color: #003366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+            font-size: 12px;
+            flex-shrink: 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .example-badge {
+            background-color: #dbeafe;
+            color: #1e40af;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .scrollable-content {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        /* Custom Scrollbar */
+        .scrollable-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .scrollable-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .scrollable-content::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="flex items-center space-x-2 mb-2">
+                <span
+                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wide">Analysis</span>
+                <span class="text-gray-400 text-xs">/</span>
+                <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">Ratio Analysis</span>
+            </div>
+            <h1 class="font-montserrat font-bold text-4xl navy-text leading-tight">
+                Key Profitability &amp; Efficiency Ratios
+            </h1>
+        </div>
+        <!-- Main Content -->
+        <div class="content-area">
+            <!-- Left Column: Profitability -->
+            <div class="table-container">
+                <div class="bs-header">
+                    <span>Profitability Ratios <span class="text-xs font-normal opacity-80">(FY25 Example)</span></span>
+                    <i class="fas fa-chart-line opacity-50"></i>
+                </div>
+                <!-- Input Data Summary -->
+                <div
+                    class="bg-blue-50 p-3 text-xs text-gray-600 border-b border-blue-100 flex flex-wrap gap-x-4 gap-y-1">
+                    <span><i class="fas fa-database text-blue-400 mr-1"></i> <strong>Inputs:</strong></span>
+                    <span>Revenue: 1,000</span>
+                    <span>COGS: 600</span>
+                    <span>EBITDA: 180</span>
+                    <span>PAT: 90</span>
+                    <span>Avg Equity: 450</span>
+                </div>
+                <div class="scrollable-content">
+                    <!-- Ratio 1 -->
+                    <div class="bs-row">
+                        <div class="flex flex-col">
+                            <span class="ratio-name">Gross Profit Margin</span>
+                            <span class="ratio-formula">(Revenue - COGS) / Revenue</span>
+                        </div>
+                        <div class="calc-display">
+                            <span class="calc-value">40.0%</span>
+                            <span class="calc-detail block">(1,000 - 600) / 1,000</span>
+                        </div>
+                    </div>
+                    <!-- Ratio 2 -->
+                    <div class="bs-row">
+                        <div class="flex flex-col">
+                            <span class="ratio-name">EBITDA Margin</span>
+                            <span class="ratio-formula">EBITDA / Revenue</span>
+                        </div>
+                        <div class="calc-display">
+                            <span class="calc-value">18.0%</span>
+                            <span class="calc-detail block">180 / 1,000</span>
+                        </div>
+                    </div>
+                    <!-- Ratio 3 -->
+                    <div class="bs-row">
+                        <div class="flex flex-col">
+                            <span class="ratio-name">Net Profit Margin</span>
+                            <span class="ratio-formula">PAT / Revenue</span>
+                        </div>
+                        <div class="calc-display">
+                            <span class="calc-value">9.0%</span>
+                            <span class="calc-detail block">90 / 1,000</span>
+                        </div>
+                    </div>
+                    <!-- Ratio 4 -->
+                    <div class="bs-row">
+                        <div class="flex flex-col">
+                            <span class="ratio-name">Return on Equity (ROE)</span>
+                            <span class="ratio-formula">PAT / Average Equity</span>
+                        </div>
+                        <div class="calc-display">
+                            <span class="calc-value">20.0%</span>
+                            <span class="calc-detail block">90 / 450</span>
+                        </div>
+                    </div>
+                    <!-- Ratio 5 -->
+                    <div class="bs-row">
+                        <div class="flex flex-col">
+                            <span class="ratio-name">ROCE (Approx.)</span>
+                            <span class="ratio-formula">EBIT / Capital Employed</span>
+                        </div>
+                        <div class="calc-display">
+                            <span class="calc-value">~17.5%</span>
+                            <span class="calc-detail block">140 / 800 (Est.)</span>
+                        </div>
+                    </div>
+                    <!-- CS Insight -->
+                    <div class="bg-yellow-50 p-3 m-3 rounded border border-yellow-100">
+                        <p class="text-xs text-yellow-800 font-semibold"><i class="fas fa-lightbulb mr-1"></i> CS
+                            Insight:</p>
+                        <p class="text-xs text-gray-600 mt-1">Significant deviations in these ratios (&gt;25%) require
+                            detailed explanation in the Board's Report and Notes to Accounts as per Schedule III
+                            amendment.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Column: Efficiency -->
+            <div class="table-container">
+                <div class="bs-header">
+                    <span>Efficiency / Activity Ratios <span class="text-xs font-normal opacity-80">(FY25
+                            Example)</span></span>
+                    <i class="fas fa-cogs opacity-50"></i>
+                </div>
+                <!-- Input Data Summary -->
+                <div
+                    class="bg-blue-50 p-3 text-xs text-gray-600 border-b border-blue-100 flex flex-wrap gap-x-4 gap-y-1">
+                    <span><i class="fas fa-database text-blue-400 mr-1"></i> <strong>Inputs:</strong></span>
+                    <span>Avg Inv: 150</span>
+                    <span>Avg TR: 120</span>
+                    <span>Avg TP: 100</span>
+                    <span>Avg Assets: 1,200</span>
+                </div>
+                <div class="scrollable-content">
+                    <!-- Ratio 1 -->
+                    <div class="bs-row">
+                        <div class="flex flex-col">
+                            <span class="ratio-name">Inventory Turnover</span>
+                            <span class="ratio-formula">COGS / Average Inventory</span>
+                        </div>
+                        <div class="calc-display">
+                            <span class="calc-value">4.0 Times</span>
+                            <span class="calc-detail block">600 / 150</span>
+                        </div>
+                    </div>
+                    <!-- Ratio 2 -->
+                    <div class="bs-row">
+                        <div class="flex flex-col">
+                            <span class="ratio-name">Receivables Turnover</span>
+                            <span class="ratio-formula">Revenue / Average Trade Receivables</span>
+                        </div>
+                        <div class="calc-display">
+                            <span class="calc-value">8.33 Times</span>
+                            <span class="calc-detail block">1,000 / 120</span>
+                        </div>
+                    </div>
+                    <!-- Ratio 3 -->
+                    <div class="bs-row">
+                        <div class="flex flex-col">
+                            <span class="ratio-name">Payables Turnover</span>
+                            <span class="ratio-formula">COGS / Average Trade Payables</span>
+                        </div>
+                        <div class="calc-display">
+                            <span class="calc-value">6.0 Times</span>
+                            <span class="calc-detail block">600 / 100</span>
+                        </div>
+                    </div>
+                    <!-- Ratio 4 -->
+                    <div class="bs-row">
+                        <div class="flex flex-col">
+                            <span class="ratio-name">Asset Turnover</span>
+                            <span class="ratio-formula">Revenue / Average Total Assets</span>
+                        </div>
+                        <div class="calc-display">
+                            <span class="calc-value">0.83 Times</span>
+                            <span class="calc-detail block">1,000 / 1,200</span>
+                        </div>
+                    </div>
+                    <!-- Ratio 5 -->
+                    <div class="bs-row">
+                        <div class="flex flex-col">
+                            <span class="ratio-name">Working Capital Cycle</span>
+                            <span class="ratio-formula">Inventory Days + Rec. Days - Pay. Days</span>
+                        </div>
+                        <div class="calc-display">
+                            <span class="calc-value">74 Days</span>
+                            <span class="calc-detail block">91 + 44 - 61</span>
+                        </div>
+                    </div>
+                    <!-- CS Insight -->
+                    <div class="bg-green-50 p-3 m-3 rounded border border-green-100">
+                        <p class="text-xs text-green-800 font-semibold"><i class="fas fa-check-circle mr-1"></i>
+                            Efficiency Check:</p>
+                        <p class="text-xs text-gray-600 mt-1">High turnover indicates efficiency. Low turnover may
+                            signal obsolete stock or bad debts—areas a CS must probe for impairment risks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+            <p>Scrutiny of Balance Sheet - CS Compliance Perspective</p>
+            <div class="flex items-center space-x-4">
+                <p>Schedule III, Companies Act 2013</p>
+                <div class="h-3 w-px bg-white opacity-50"></div>
+                <p>Page 11</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

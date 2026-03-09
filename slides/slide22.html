@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Responding to Audit Qualifications: CS Playbook</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .navy-text {
+            color: #003366;
+        }
+
+        .navy-bg {
+            background-color: #003366;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Header */
+        .header {
+            padding: 30px 60px 15px 60px;
+            border-bottom: 2px solid #E5E7EB;
+            flex-shrink: 0;
+        }
+
+        /* Content Area */
+        .content-area {
+            flex: 1;
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #f8fafc;
+            position: relative;
+        }
+
+        /* Process Steps */
+        .process-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            width: 18%;
+            /* 5 cards with spacing */
+            padding: 20px;
+            position: relative;
+            border-top: 4px solid #003366;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: #003366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            border: 4px solid #f8fafc;
+            z-index: 10;
+        }
+
+        .step-icon {
+            font-size: 28px;
+            color: #003366;
+            margin-bottom: 15px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .step-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            color: #1f2937;
+            text-align: center;
+            margin-bottom: 10px;
+            line-height: 1.3;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .step-desc {
+            font-size: 12px;
+            color: #4b5563;
+            line-height: 1.5;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        /* Flow Line Background */
+        .flow-line-container {
+            position: absolute;
+            top: 16%;
+            left: 9%;
+            right: 9%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .flow-line {
+            border-top: 3px dashed #cbd5e1;
+            width: 100%;
+            position: absolute;
+            top: 0;
+        }
+
+        /* Feature Box */
+        .feature-box {
+            background-color: #eff6ff;
+            border-radius: 6px;
+            padding: 8px;
+            margin-top: 12px;
+            border: 1px solid #bfdbfe;
+        }
+
+        .feature-text {
+            font-size: 11px;
+            color: #1e40af;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Footer */
+        .footer {
+            height: 50px;
+            background-color: #003366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+            font-size: 12px;
+            flex-shrink: 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Bottom Context Box */
+        .context-box {
+            margin-top: 40px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #003366;
+            display: flex;
+            align-items: flex-start;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="flex items-center space-x-2 mb-2">
+                <span
+                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wide">Governance</span>
+                <span class="text-gray-400 text-xs">/</span>
+                <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">Audit Response</span>
+            </div>
+            <h1 class="font-montserrat font-bold text-3xl navy-text leading-tight">
+                Responding to Audit Qualifications: CS Playbook
+            </h1>
+        </div>
+        <!-- Main Content -->
+        <div class="content-area">
+            <!-- Flow Line Background -->
+            <div class="flow-line-container">
+                <div class="flow-line"></div>
+            </div>
+            <!-- Process Steps -->
+            <div class="process-container">
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3 class="step-title">Identify &amp; Assess</h3>
+                    <p class="step-desc">
+                        Distinguish between 'Qualification', 'Emphasis of Matter', or 'Adverse Opinion'. Assess legal
+                        implications under Companies Act.
+                    </p>
+                    <div class="feature-box">
+                        <p class="feature-text">Input: Audit Report Draft</p>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-file-pen"></i>
+                    </div>
+                    <h3 class="step-title">Draft Board Response</h3>
+                    <p class="step-desc">
+                        Prepare explanations for the Board's Report (Sec 134(3)(f)). Address the root cause, not just
+                        the symptom.
+                    </p>
+                    <div class="feature-box">
+                        <p class="feature-text">Action: Clear Drafting</p>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-users-gear"></i>
+                    </div>
+                    <h3 class="step-title">Coordinate &amp; Align</h3>
+                    <p class="step-desc">
+                        Liaise with Management (for facts), Auditors (for understanding), and Audit Committee (for
+                        oversight).
+                    </p>
+                    <div class="feature-box">
+                        <p class="feature-text">Role: Bridge Builder</p>
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 class="step-title">Disclose &amp; Intimate</h3>
+                    <p class="step-desc">
+                        Ensure notes to accounts reflect the issue. For listed entities, intimate Stock Exchanges
+                        promptly (Reg 30 LODR).
+                    </p>
+                    <div class="feature-box">
+                        <p class="feature-text">Output: Transparency</p>
+                    </div>
+                </div>
+                <!-- Step 5 -->
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <div class="step-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="step-title">Monitor Closure</h3>
+                    <p class="step-desc">
+                        Track remediation actions. Ensure the qualification does not recur in the subsequent financial
+                        year.
+                    </p>
+                    <div class="feature-box">
+                        <p class="feature-text">Goal: Clean Report</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Bottom Context -->
+            <div class="context-box">
+                <div class="text-blue-800 text-2xl mr-4 mt-1">
+                    <i class="fas fa-shield-halved"></i>
+                </div>
+                <div>
+                    <h4 class="font-montserrat font-bold text-gray-800 text-lg mb-1">CS Role: Strategic Communication
+                    </h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        A qualification signals a governance gap. The Company Secretary must ensure the Board's response
+                        is factual, mitigating, and demonstrates a concrete plan for rectification, thereby preserving
+                        stakeholder trust and minimizing regulatory scrutiny.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+            <p>Scrutiny of Balance Sheet - CS Compliance Perspective</p>
+            <div class="flex items-center space-x-4">
+                <p>Audit Management</p>
+                <div class="h-3 w-px bg-white opacity-50"></div>
+                <p>Page 22</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

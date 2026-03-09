@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Comparative Financial Statements</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .navy-text {
+            color: #003366;
+        }
+
+        .navy-bg {
+            background-color: #003366;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Header */
+        .header {
+            padding: 30px 60px 15px 60px;
+            border-bottom: 2px solid #E5E7EB;
+            flex-shrink: 0;
+        }
+
+        /* Content Area */
+        .content-area {
+            flex: 1;
+            padding: 30px 60px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Table Styles */
+        .comparison-table-wrapper {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e5e7eb;
+            overflow: hidden;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .comp-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .comp-table thead {
+            background-color: #003366;
+            color: white;
+        }
+
+        .comp-table th {
+            padding: 14px 20px;
+            text-align: right;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.025em;
+        }
+
+        .comp-table th:first-child {
+            text-align: left;
+            width: 40%;
+        }
+
+        .comp-table tbody tr {
+            border-bottom: 1px solid #f3f4f6;
+            transition: background-color 0.15s;
+        }
+
+        .comp-table tbody tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .comp-table td {
+            padding: 10px 20px;
+            text-align: right;
+            color: #4b5563;
+            font-feature-settings: "tnum";
+            font-variant-numeric: tabular-nums;
+        }
+
+        .comp-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .section-header td {
+            background-color: #f1f5f9;
+            color: #003366;
+            font-weight: 700 !important;
+            font-size: 11px;
+            text-transform: uppercase;
+            padding: 8px 20px;
+        }
+
+        .total-row td {
+            background-color: #eef2ff;
+            font-weight: 700;
+            color: #003366;
+            border-top: 2px solid #003366;
+        }
+
+        /* Variance Indicators */
+        .var-pos {
+            color: #059669;
+            /* Green */
+            font-weight: 600;
+        }
+
+        .var-neg {
+            color: #dc2626;
+            /* Red */
+            font-weight: 600;
+        }
+
+        .var-neutral {
+            color: #6b7280;
+        }
+
+        /* CS Note Box */
+        .cs-note-box {
+            margin-top: 20px;
+            background-color: #fffbeb;
+            border-left: 4px solid #d97706;
+            padding: 15px;
+            border-radius: 4px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        /* Footer */
+        .footer {
+            height: 50px;
+            background-color: #003366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+            font-size: 12px;
+            flex-shrink: 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="flex items-center space-x-2 mb-2">
+                <span
+                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wide">Analysis</span>
+                <span class="text-gray-400 text-xs">/</span>
+                <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">Comparison</span>
+            </div>
+            <h1 class="font-montserrat font-bold text-4xl navy-text leading-tight">
+                Comparative Financial Statements
+            </h1>
+        </div>
+        <!-- Main Content -->
+        <div class="content-area">
+            <div class="comparison-table-wrapper">
+                <table class="comp-table">
+                    <thead>
+                        <tr>
+                            <th>Particulars</th>
+                            <th>Current Year (CY)<br /><span class="text-xs font-normal opacity-75">(₹ Lakhs)</span>
+                            </th>
+                            <th>Previous Year (PY)<br /><span class="text-xs font-normal opacity-75">(₹ Lakhs)</span>
+                            </th>
+                            <th>Change (Δ)<br /><span class="text-xs font-normal opacity-75">(Absolute)</span></th>
+                            <th>% Change<br /><span class="text-xs font-normal opacity-75">(YoY)</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Revenue Section -->
+                        <tr class="section-header">
+                            <td colspan="5">I. Revenue</td>
+                        </tr>
+                        <tr>
+                            <td>Revenue from Operations</td>
+                            <td>12,500</td>
+                            <td>10,000</td>
+                            <td>2,500</td>
+                            <td class="var-pos">+25.0%</td>
+                        </tr>
+                        <tr>
+                            <td>Other Income</td>
+                            <td>350</td>
+                            <td>200</td>
+                            <td>150</td>
+                            <td class="var-pos">+75.0%</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td>Total Revenue</td>
+                            <td>12,850</td>
+                            <td>10,200</td>
+                            <td>2,650</td>
+                            <td class="var-pos">+26.0%</td>
+                        </tr>
+                        <!-- Expenses Section -->
+                        <tr class="section-header">
+                            <td colspan="5">II. Expenses</td>
+                        </tr>
+                        <tr>
+                            <td>Cost of Materials Consumed</td>
+                            <td>5,500</td>
+                            <td>4,000</td>
+                            <td>1,500</td>
+                            <td class="var-neg">+37.5%</td>
+                        </tr>
+                        <tr>
+                            <td>Employee Benefits Expense</td>
+                            <td>2,200</td>
+                            <td>2,000</td>
+                            <td>200</td>
+                            <td class="var-pos">+10.0%</td>
+                        </tr>
+                        <tr>
+                            <td>Finance Costs</td>
+                            <td>800</td>
+                            <td>400</td>
+                            <td>400</td>
+                            <td class="var-neg">+100.0%</td>
+                        </tr>
+                        <tr>
+                            <td>Depreciation &amp; Amortization</td>
+                            <td>600</td>
+                            <td>550</td>
+                            <td>50</td>
+                            <td class="var-neutral">+9.1%</td>
+                        </tr>
+                        <tr>
+                            <td>Other Expenses</td>
+                            <td>1,400</td>
+                            <td>1,200</td>
+                            <td>200</td>
+                            <td class="var-pos">+16.7%</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td>Total Expenses</td>
+                            <td>10,500</td>
+                            <td>8,150</td>
+                            <td>2,350</td>
+                            <td class="var-neg">+28.8%</td>
+                        </tr>
+                        <!-- Profit Section -->
+                        <tr class="section-header">
+                            <td colspan="5">III. Profitability</td>
+                        </tr>
+                        <tr style="background-color: #f0fdf4;">
+                            <td>Profit Before Tax (PBT)</td>
+                            <td>2,350</td>
+                            <td>2,050</td>
+                            <td>300</td>
+                            <td class="var-pos">+14.6%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- CS Note -->
+            <div class="cs-note-box">
+                <i class="fas fa-search text-yellow-600 text-xl mr-3 mt-1"></i>
+                <div>
+                    <h4 class="font-montserrat font-bold text-gray-800 text-sm mb-1">CS Scrutiny Point: Material
+                        Variance Analysis</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        <strong>Schedule III Requirement:</strong> Any variance &gt; 25% in key ratios or significant
+                        line items (like Finance Costs doubling here) requires specific explanation in the Notes to
+                        Accounts. The CS must ensure the Board's Report and Notes reconcile this jump (e.g., "Increased
+                        borrowing for new plant").
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+            <p>Scrutiny of Balance Sheet - CS Compliance Perspective</p>
+            <div class="flex items-center space-x-4">
+                <p>Year-on-Year Variance</p>
+                <div class="h-3 w-px bg-white opacity-50"></div>
+                <p>Page 14</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

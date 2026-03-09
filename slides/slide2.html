@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Financial Statements: Purpose and Legal Basis</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .navy-bg {
+            background-color: #003366;
+        }
+
+        .text-navy {
+            color: #003366;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Header Styling */
+        .header {
+            padding: 40px 60px 20px 60px;
+            border-bottom: 2px solid #E5E7EB;
+        }
+
+        /* List Styling */
+        .custom-list-item {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        .custom-list-item::before {
+            content: '\f058';
+            /* fa-circle-check */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: #003366;
+            font-size: 16px;
+        }
+
+        /* Right Panel Styling */
+        .visual-panel {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            /* Subtle non-gradient background fallback */
+            background-color: #f8fafc;
+            border-left: 1px solid #e2e8f0;
+        }
+
+        .grid-card {
+            background: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: #003366;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+            color: white;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="flex items-center space-x-2 mb-2">
+                <span
+                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wide">Overview</span>
+                <span class="text-gray-400 text-xs">/</span>
+                <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">Financial Statements</span>
+            </div>
+            <h1 class="font-montserrat font-bold text-4xl text-navy leading-tight">
+                Purpose and Legal Basis
+            </h1>
+        </div>
+        <!-- Main Content -->
+        <div class="flex flex-1 overflow-hidden">
+            <!-- Left Column: Content -->
+            <div class="w-7/12 p-12 pr-8 flex flex-col justify-center">
+                <div class="mb-8">
+                    <h2 class="font-montserrat font-bold text-xl text-gray-800 mb-4 border-l-4 border-blue-800 pl-3">
+                        Primary Objectives
+                    </h2>
+                    <div class="text-gray-600 leading-relaxed">
+                        <div class="custom-list-item">
+                            <p><strong>True &amp; Fair View:</strong> Reflecting accurate financial position,
+                                performance, and cash flows.</p>
+                        </div>
+                        <div class="custom-list-item">
+                            <p><strong>Decision Usefulness:</strong> Providing critical data for investment and credit
+                                decisions.</p>
+                        </div>
+                        <div class="custom-list-item">
+                            <p><strong>Stewardship &amp; Accountability:</strong> Management's report card to
+                                shareholders regarding resource utilization.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="font-montserrat font-bold text-xl text-gray-800 mb-4 border-l-4 border-blue-800 pl-3">
+                        Regulatory Framework &amp; Compliance
+                    </h2>
+                    <div class="text-gray-600 leading-relaxed">
+                        <div class="custom-list-item">
+                            <p><strong>Legal Basis:</strong> Section 129 of Companies Act, 2013 read with Schedule III.
+                            </p>
+                        </div>
+                        <div class="custom-list-item">
+                            <p><strong>Reporting Standards:</strong> Compliance with Accounting Standards (AS) or Ind AS
+                                as applicable.</p>
+                        </div>
+                        <div class="custom-list-item">
+                            <p><strong>Statutory Filings:</strong> Mandatory filing of Forms AOC-4 / AOC-4 XBRL with
+                                ROC.</p>
+                        </div>
+                        <div class="custom-list-item">
+                            <p><strong>Approval Process:</strong> Board approval and signing under Section 134 before
+                                AGM circulation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Column: Visual -->
+            <div class="w-5/12 visual-panel p-10 flex flex-col justify-center relative">
+                <!-- Grid Visualization -->
+                <div class="grid grid-cols-2 gap-6 h-full max-h-96">
+                    <!-- Card 1 -->
+                    <div
+                        class="grid-card rounded-lg p-6 flex flex-col items-center justify-center text-center border-t-4 border-blue-800">
+                        <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-3">
+                            <i class="fas fa-scale-balanced text-2xl text-navy"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-800 mb-1">True &amp; Fair</h3>
+                        <p class="text-xs text-gray-500 leading-tight">Accurate representation of financial health</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div
+                        class="grid-card rounded-lg p-6 flex flex-col items-center justify-center text-center border-t-4 border-gray-500">
+                        <div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mb-3">
+                            <i class="fas fa-gavel text-2xl text-gray-600"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-800 mb-1">Legal Basis</h3>
+                        <p class="text-xs text-gray-500 leading-tight">Companies Act 2013 &amp; Schedule III</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div
+                        class="grid-card rounded-lg p-6 flex flex-col items-center justify-center text-center border-t-4 border-gray-500">
+                        <div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mb-3">
+                            <i class="fas fa-users text-2xl text-gray-600"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-800 mb-1">Stakeholders</h3>
+                        <p class="text-xs text-gray-500 leading-tight">Investors, Lenders, Regulators</p>
+                    </div>
+                    <!-- Card 4 -->
+                    <div
+                        class="grid-card rounded-lg p-6 flex flex-col items-center justify-center text-center border-t-4 border-blue-800">
+                        <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-3">
+                            <i class="fas fa-file-contract text-2xl text-navy"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-800 mb-1">Compliance</h3>
+                        <p class="text-xs text-gray-500 leading-tight">AOC-4 Filing &amp; Board Report</p>
+                    </div>
+                </div>
+                <!-- Floating Decorative Icon -->
+                <div class="absolute bottom-4 right-4 opacity-5">
+                    <i class="fas fa-building-columns text-9xl"></i>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+            <p>Scrutiny of Balance Sheet - CS Compliance Perspective</p>
+            <div class="flex items-center space-x-4">
+                <p>Companies Act, 2013</p>
+                <div class="h-3 w-px bg-white opacity-50"></div>
+                <p>Page 2</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

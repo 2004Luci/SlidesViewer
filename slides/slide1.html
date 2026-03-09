@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Title Slide</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;600&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .navy-accent {
+            background-color: #003366;
+        }
+
+        .grey-accent {
+            background-color: #E5E7EB;
+        }
+
+        .text-navy {
+            color: #003366;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Design Elements */
+        .left-bar {
+            width: 80px;
+            height: 100%;
+            background-color: #003366;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .content-area {
+            flex: 1;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .decorative-shape {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: #f0f4f8;
+            border-bottom-left-radius: 100%;
+            z-index: 0;
+        }
+
+        .bottom-line {
+            position: absolute;
+            bottom: 60px;
+            left: 0;
+            width: 200px;
+            height: 8px;
+            background-color: #003366;
+        }
+
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background-color: #003366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Left vertical bar -->
+        <div class="left-bar"></div>
+        <!-- Decorative background shape -->
+        <div class="decorative-shape"></div>
+        <!-- Main Content -->
+        <div class="content-area">
+            <!-- Icon/Logo Placeholder -->
+            <div class="icon-box shadow-lg">
+                <i class="fas fa-balance-scale"></i>
+            </div>
+            <!-- Subject Tag -->
+            <div class="mb-4">
+                <p class="font-montserrat font-bold text-gray-500 uppercase tracking-widest text-sm">
+                    Reading and Interpretation of Financial Statements
+                </p>
+            </div>
+            <!-- Main Title -->
+            <div class="mb-6 relative">
+                <h1 class="font-montserrat font-extrabold text-navy text-6xl leading-tight">
+                    Scrutiny of Balance Sheet
+                </h1>
+                <h2 class="font-montserrat font-bold text-gray-600 text-3xl mt-2">
+                    from Company Secretary (CS) Compliance Point of View
+                </h2>
+                <div class="bottom-line mt-6"></div>
+            </div>
+            <!-- Audience/Context -->
+            <div class="mb-12 max-w-3xl">
+                <p class="text-gray-600 text-lg leading-relaxed">
+                    A comprehensive guide for Commerce Students, CS Aspirants, and Corporate Law Professionals on
+                    interpreting financial statements, regulatory alignment, and governance under the Companies Act,
+                    2013.
+                </p>
+            </div>
+            <!-- Footer Details -->
+            <div class="mt-auto grid grid-cols-3 gap-8 border-t border-gray-200 pt-8">
+                <div>
+                    <p class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Presented By</p>
+                    <p class="font-bold text-navy text-lg">[Lecturer Name]</p>
+                    <p class="text-sm text-gray-500">[Designation/Qualification]</p>
+                </div>
+                <div>
+                    <p class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Institution</p>
+                    <p class="font-bold text-navy text-lg">[Institution Name]</p>
+                    <p class="text-sm text-gray-500">[Department]</p>
+                </div>
+                <div>
+                    <p class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Date</p>
+                    <p class="font-bold text-navy text-lg">[DD Month YYYY]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Balance Sheet Structure (Schedule III)</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .navy-bg {
+            background-color: #003366;
+        }
+
+        .navy-text {
+            color: #003366;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Header */
+        .header {
+            padding: 30px 60px 15px 60px;
+            border-bottom: 2px solid #E5E7EB;
+            flex-shrink: 0;
+        }
+
+        /* Content Area */
+        .content-area {
+            flex: 1;
+            padding: 20px 60px 40px 60px;
+            display: flex;
+            gap: 40px;
+            overflow: hidden;
+        }
+
+        /* Table Styles */
+        .table-container {
+            flex: 1;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .bs-header {
+            background-color: #003366;
+            color: white;
+            padding: 12px 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bs-sub-header {
+            background-color: #f1f5f9;
+            color: #003366;
+            padding: 8px 20px;
+            font-weight: 700;
+            font-size: 14px;
+            border-bottom: 1px solid #e2e8f0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .bs-row {
+            padding: 6px 20px 6px 30px;
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 13px;
+            color: #4b5563;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bs-row:last-child {
+            border-bottom: none;
+        }
+
+        .bs-row:hover {
+            background-color: #f8fafc;
+        }
+
+        .note-ref {
+            color: #64748b;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .amount-col {
+            font-family: 'Open Sans', sans-serif;
+            color: #64748b;
+            /* Placeholder color */
+        }
+
+        /* Total Row */
+        .total-row {
+            background-color: #eef2ff;
+            padding: 10px 20px;
+            font-weight: 700;
+            color: #003366;
+            display: flex;
+            justify-content: space-between;
+            border-top: 2px solid #003366;
+        }
+
+        /* Footer */
+        .footer {
+            height: 50px;
+            background-color: #003366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+            font-size: 12px;
+            flex-shrink: 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Scrollbar for table body if needed */
+        .scrollable-content {
+            height: calc(100% - 48px);
+            /* Subtract header height */
+            overflow-y: auto;
+        }
+
+        /* Custom Scrollbar */
+        .scrollable-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .scrollable-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .scrollable-content::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="flex items-center space-x-2 mb-2">
+                <span
+                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wide">Analysis</span>
+                <span class="text-gray-400 text-xs">/</span>
+                <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">Schedule III</span>
+            </div>
+            <h1 class="font-montserrat font-bold text-4xl navy-text leading-tight">
+                Balance Sheet Structure
+            </h1>
+        </div>
+        <!-- Main Content -->
+        <div class="content-area">
+            <!-- Left Column: Equity & Liabilities -->
+            <div class="table-container">
+                <div class="bs-header">
+                    <span>I. Equity and Liabilities</span>
+                    <i class="fas fa-balance-scale-left opacity-50"></i>
+                </div>
+                <div class="scrollable-content">
+                    <!-- Section 1 -->
+                    <div class="bs-sub-header">1. Shareholders' Funds</div>
+                    <div class="bs-row">
+                        <span>(a) Share Capital</span>
+                        <span class="note-ref">Note No.</span>
+                    </div>
+                    <div class="bs-row">
+                        <span>(b) Reserves and Surplus</span>
+                        <span class="note-ref">Note No.</span>
+                    </div>
+                    <div class="bs-row">
+                        <span>(c) Money received against share warrants</span>
+                        <span class="note-ref">Note No.</span>
+                    </div>
+                    <!-- Section 2 -->
+                    <div class="bs-sub-header">2. Share Application money pending allotment</div>
+                    <!-- Section 3 -->
+                    <div class="bs-sub-header">3. Non-Current Liabilities</div>
+                    <div class="bs-row">
+                        <span>(a) Long-term borrowings</span>
+                        <span class="note-ref">Note No.</span>
+                    </div>
+                    <div class="bs-row">
+                        <span>(b) Lease Liabilities <span class="text-xs text-blue-600">(Ind AS)</span></span>
+                        <span class="note-ref">Note No.</span>
+                    </div>
+                    <div class="bs-row">
+                        <span>(c) Other Long term liabilities</span>
+                        <span class="note-ref">Note No.</span>
+                    </div>
+                    <div class="bs-row">
+                        <span>(d) Long-term provisions</span>
+                        <span class="note-ref">Note No.</span>
+                    </div>
+                    <!-- Section 4 -->
+                    <div class="bs-sub-header">4. Current Liabilities</div>
+                    <div class="bs-row">
+                        <span>(a) Short-term borrowings</span>
+                        <span class="note-ref">Note No.</span>
+                    </div>
+                    <div class="bs-row">
+                        <span>(b) Trade payables (MSME / Others)</span>
+                        <span class="note-ref">Note No.</span>
+                    </div>
+                    <div class="bs-row">
+                        <span>(c) Other current liabilities</span>
+                        <span class="note-ref">Note No.</span>
+                    </div>
+                    <div class="bs-row">
+                        <span>(d) Short-term provisions</span>
+                        <span class="note-ref">Note No.</span>
+                    </div>
+                    <!-- Total -->
+                    <div class="total-row mt-4">
+                        <span>TOTAL EQUITY AND LIABILITIES</span>
+                        <span>XXX</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Column: Assets -->
+            <div class="table-container">
+                <div class="bs-header">
+                    <span>II. Assets</span>
+                    <i class="fas fa-chart-pie opacity-50"></i>
+                </div>
+                <div class="scrollable-content">
+                    <!-- Section 1 -->
+                    <div class="bs-sub-header">1. Non-Current Assets</div>
+                    <div class="bs-row font-semibold text-gray-700 pl-4 bg-gray-50">
+                        <span>(a) Property, Plant and Equipment and Intangible Assets</span>
+                    </div>
+                    <div class="bs-row pl-10">
+                        <span>(i) Property, Plant and Equipment</span>
+                        <span class="note-ref">Note No.</span>
+                    </div>
+                    <div class="bs-row pl-10">
+                        <span>(ii) Intangible assets</span>
+                        <span class="note-ref">Note No.</span>
+                    </div>
+                    <div class="bs-row pl-10">
+                        <span>(iii) CWIP / Intangible assets under development</span>
+                        <span class="note-ref">Note No.</span>
+                    </div>
+                    <div class="bs-row">
+                        <span>(b) Non-current investments</span>
+                        <span class="note-ref">Note No.</span>
+                    </div>
+                    <div class="bs-row">
+                        <span>(c) Deferred tax assets (Net)</span>
+                        <span class="note-ref">Note No.</span>
+                    </div>
+                    <div class="bs-row">
+                        <span>(d) Long-term loans and advances</span>
+                        <span class="note-ref">Note No.</span>
+                    </div>
+                    <!-- Section 2 -->
+                    <div class="bs-sub-header">2. Current Assets</div>
+                    <div class="bs-row">
+                        <span>(a) Current investments</span>
+                        <span class="note-ref">Note No.</span>
+                    </div>
+                    <div class="bs-row">
+                        <span>(b) Inventories</span>
+                        <span class="note-ref">Note No.</span>
+                    </div>
+                    <div class="bs-row">
+                        <span>(c) Trade receivables <span class="text-xs text-blue-600">(Ageing)</span></span>
+                        <span class="note-ref">Note No.</span>
+                    </div>
+                    <div class="bs-row">
+                        <span>(d) Cash and cash equivalents</span>
+                        <span class="note-ref">Note No.</span>
+                    </div>
+                    <div class="bs-row">
+                        <span>(e) Short-term loans and advances</span>
+                        <span class="note-ref">Note No.</span>
+                    </div>
+                    <!-- Total -->
+                    <div class="total-row mt-4">
+                        <span>TOTAL ASSETS</span>
+                        <span>XXX</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+            <p>Scrutiny of Balance Sheet - CS Compliance Perspective</p>
+            <div class="flex items-center space-x-4">
+                <p>Schedule III, Companies Act 2013</p>
+                <div class="h-3 w-px bg-white opacity-50"></div>
+                <p>Page 6</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

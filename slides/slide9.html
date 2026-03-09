@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Interpreting Signals: Health, Efficiency, Risks</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .navy-bg {
+            background-color: #003366;
+        }
+
+        .text-navy {
+            color: #003366;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Header Styling */
+        .header {
+            padding: 40px 60px 20px 60px;
+            border-bottom: 2px solid #E5E7EB;
+        }
+
+        /* List Styling */
+        .custom-list-item {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+        }
+
+        .custom-list-item::before {
+            content: '\f058';
+            /* fa-circle-check */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: #003366;
+            font-size: 16px;
+        }
+
+        .risk-list-item {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+        }
+
+        .risk-list-item::before {
+            content: '\f071';
+            /* fa-exclamation-triangle */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: #dc2626;
+            /* red-600 */
+            font-size: 14px;
+        }
+
+        /* Right Panel Styling */
+        .visual-panel {
+            background-color: #f8fafc;
+            border-left: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Heatmap Styling */
+        .heatmap-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            width: 100%;
+        }
+
+        .heatmap-card {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .heatmap-card.green {
+            border-top: 4px solid #10b981;
+        }
+
+        .heatmap-card.yellow {
+            border-top: 4px solid #f59e0b;
+        }
+
+        .heatmap-card.orange {
+            border-top: 4px solid #f97316;
+        }
+
+        .heatmap-card.red {
+            border-top: 4px solid #ef4444;
+        }
+
+        .indicator-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            border-bottom: 1px dashed #e5e7eb;
+            padding-bottom: 4px;
+        }
+
+        .indicator-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: #003366;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+            color: white;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="flex items-center space-x-2 mb-2">
+                <span
+                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wide">Interpretation</span>
+                <span class="text-gray-400 text-xs">/</span>
+                <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">Financial Analysis</span>
+            </div>
+            <h1 class="font-montserrat font-bold text-4xl text-navy leading-tight">
+                Interpreting Signals: Health, Efficiency, Risks
+            </h1>
+        </div>
+        <!-- Main Content -->
+        <div class="flex flex-1 overflow-hidden">
+            <!-- Left Column: Content -->
+            <div class="w-1/2 p-10 pr-6 flex flex-col justify-start overflow-y-auto">
+                <div class="mb-6">
+                    <h2 class="font-montserrat font-bold text-xl text-gray-800 mb-3 border-l-4 border-blue-800 pl-3">
+                        Financial Health &amp; Efficiency
+                    </h2>
+                    <div class="text-gray-600 leading-relaxed text-sm">
+                        <div class="custom-list-item">
+                            <p><strong>Health Indicators:</strong> Assess core stability via Profitability (Margins),
+                                Liquidity (Current Ratio), and Solvency (Debt-to-Equity).</p>
+                        </div>
+                        <div class="custom-list-item">
+                            <p><strong>Efficiency Metrics:</strong> Analyze the Working Capital Cycle. Higher turnover
+                                in Inventory/Receivables implies better operational efficiency.</p>
+                        </div>
+                        <div class="custom-list-item">
+                            <p><strong>Sustainability:</strong> Consistent Operating Cash Flow (OCF) generation vs.
+                                reported Accounting Profits.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <h2 class="font-montserrat font-bold text-xl text-gray-800 mb-3 border-l-4 border-red-600 pl-3">
+                        Risk &amp; Governance Red Flags
+                    </h2>
+                    <div class="text-gray-600 leading-relaxed text-sm">
+                        <div class="risk-list-item">
+                            <p><strong>Cash Flow Mismatch:</strong> Reporting profits but negative OCF often signals
+                                aggressive revenue recognition or stuck working capital.</p>
+                        </div>
+                        <div class="risk-list-item">
+                            <p><strong>Contingent Liabilities:</strong> Sudden surge in off-balance sheet items or
+                                guarantees warrants deep scrutiny.</p>
+                        </div>
+                        <div class="risk-list-item">
+                            <p><strong>Governance Issues:</strong> Unusual Related Party Transactions (RPTs), frequent
+                                equity dilution, or recurring auditor qualifications.</p>
+                        </div>
+                        <div class="risk-list-item">
+                            <p><strong>Covenant Breaches:</strong> Violation of borrowing terms indicating potential
+                                solvency crisis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Column: Visual -->
+            <div class="w-1/2 visual-panel p-8">
+                <h3 class="font-montserrat font-bold text-lg text-navy mb-4 w-full text-center">
+                    <i class="fas fa-chart-pie mr-2"></i>Indicator Heat Map
+                </h3>
+                <div class="heatmap-container">
+                    <!-- Quadrant 1: Strong Health (Green) -->
+                    <div class="heatmap-card green">
+                        <div class="flex items-center mb-2">
+                            <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-green-600"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-800 text-sm">Strong Health</h4>
+                        </div>
+                        <div class="text-xs text-gray-600">
+                            <div class="indicator-row">
+                                <span>OCF / EBITDA</span>
+                                <span class="font-bold text-green-600">&gt; 80%</span>
+                            </div>
+                            <div class="indicator-row">
+                                <span>Interest Coverage</span>
+                                <span class="font-bold text-green-600">&gt; 4.0x</span>
+                            </div>
+                            <div class="indicator-row">
+                                <span>Debt / Equity</span>
+                                <span class="font-bold text-green-600">&lt; 1.0x</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Quadrant 2: Operational Risks (Yellow) -->
+                    <div class="heatmap-card yellow">
+                        <div class="flex items-center mb-2">
+                            <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center mr-3">
+                                <i class="fas fa-exclamation text-yellow-600"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-800 text-sm">Operational Lag</h4>
+                        </div>
+                        <div class="text-xs text-gray-600">
+                            <div class="indicator-row">
+                                <span>Inv. Turnover</span>
+                                <span class="font-bold text-yellow-600">Declining</span>
+                            </div>
+                            <div class="indicator-row">
+                                <span>Debtor Days</span>
+                                <span class="font-bold text-yellow-600">Increasing</span>
+                            </div>
+                            <div class="indicator-row">
+                                <span>Gross Margin</span>
+                                <span class="font-bold text-yellow-600">Volatile</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Quadrant 3: Financial Stress (Orange) -->
+                    <div class="heatmap-card orange">
+                        <div class="flex items-center mb-2">
+                            <div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center mr-3">
+                                <i class="fas fa-bolt text-orange-600"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-800 text-sm">Financial Stress</h4>
+                        </div>
+                        <div class="text-xs text-gray-600">
+                            <div class="indicator-row">
+                                <span>Current Ratio</span>
+                                <span class="font-bold text-orange-600">&lt; 1.0x</span>
+                            </div>
+                            <div class="indicator-row">
+                                <span>Quick Ratio</span>
+                                <span class="font-bold text-orange-600">&lt; 0.5x</span>
+                            </div>
+                            <div class="indicator-row">
+                                <span>Pledged Shares</span>
+                                <span class="font-bold text-orange-600">&gt; 25%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Quadrant 4: Governance/Solvency Alert (Red) -->
+                    <div class="heatmap-card red">
+                        <div class="flex items-center mb-2">
+                            <div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center mr-3">
+                                <i class="fas fa-ban text-red-600"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-800 text-sm">Critical Red Flags</h4>
+                        </div>
+                        <div class="text-xs text-gray-600">
+                            <div class="indicator-row">
+                                <span>Auditor Opinion</span>
+                                <span class="font-bold text-red-600">Qualified</span>
+                            </div>
+                            <div class="indicator-row">
+                                <span>Statutory Dues</span>
+                                <span class="font-bold text-red-600">Unpaid</span>
+                            </div>
+                            <div class="indicator-row">
+                                <span>Related Party Txns</span>
+                                <span class="font-bold text-red-600">Abnormal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 bg-white p-4 rounded-lg shadow-sm w-full border border-gray-200">
+                    <div class="flex items-start">
+                        <i class="fas fa-lightbulb text-blue-500 mt-1 mr-3"></i>
+                        <div>
+                            <h5 class="font-bold text-gray-800 text-xs mb-1">CS Interpretative Role</h5>
+                            <p class="text-xs text-gray-500">
+                                A Company Secretary must synthesize these signals to advise the Board on compliance
+                                risks (e.g., Section 134 disclosures) and solvency declarations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+            <p>Scrutiny of Balance Sheet - CS Compliance Perspective</p>
+            <div class="flex items-center space-x-4">
+                <p>Interpretation &amp; Analysis</p>
+                <div class="h-3 w-px bg-white opacity-50"></div>
+                <p>Page 9</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
