@@ -1,43 +1,69 @@
-# Presentation slides
+# SlidesViewer
 
-26 HTML slides with a single viewer so you can present and move back and forth between slides.
+A 26-slide HTML presentation with a single-page viewer. Navigate between slides and run full-screen.
 
-## Local
+---
 
-- **Run on localhost:** from the project folder:
-  ```bash
-  npm install   # first time only
-  npm run dev  # or: npm start
-  ```
-  Then open **http://localhost:3000** in your browser.
-- **View full presentation (with navigation):** open `index.html` in your browser, or run:
-  ```bash
-  node run-in-browser.js index.html
-  ```
-- **Open one slide:** `node run-in-browser.js slide1.html` (or `slide2.html`, …, `slide26.html`). The script looks in the `slides/` folder automatically.
+## Quick start
 
-## Navigation (in `index.html`)
+```bash
+npm install
+npm run dev
+```
 
-- **Buttons:** First, Previous, Next, Last.
-- **Keyboard:** ← / → (or Space) for previous/next; Home/End for first/last.
-- **Jump to slide:** Type the slide number (e.g. `2` then `6` for slide 26) and press Enter, or wait briefly after typing the number.
-- **URL:** Use the hash to link to a slide, e.g. `index.html#5` for slide 5.
+Open **http://localhost:3000** in your browser.
 
-## Deploy (e.g. Vercel)
+---
 
-1. Push this repo to GitHub (or connect another Git provider).
-2. In [Vercel](https://vercel.com), import the project and deploy. No build step; it’s static.
-3. Your live URL will serve `index.html` at `/` and all slides under `/slides/`.
+## Local development
 
-Other static hosts (Netlify, GitHub Pages, etc.) work the same: point the site root to this folder.
+| Task                           | Command                                      |
+| ------------------------------ | -------------------------------------------- |
+| Run viewer on localhost        | `npm run dev` or `npm start`                 |
+| Open viewer in default browser | `node scripts/run-in-browser.js index.html`  |
+| Open a single slide            | `node scripts/run-in-browser.js slide1.html` |
 
-## Structure
+The script resolves `slideN.html` from the `slides/` folder, so you can run it from the project root.
+
+---
+
+## Viewer controls
+
+**Navigation**
+
+- **Buttons** — First · Previous · Next · Last (top bar)
+- **Keyboard** — ← / → or **Space** for previous/next
+- **Home / End** — First or last slide
+- **Jump** — Type slide number (e.g. `26`) then **Enter**, or wait ~1 second after typing
+
+**Full-screen (slide only)**
+
+- **F** — Toggle presentation mode (hides top bar and footer)
+- **Esc** — Exit presentation mode
+
+**URL** — Use the hash to open or share a slide: `index.html#5` for slide 5.
+
+---
+
+## Project structure
 
 ```
-/
-  index.html          # Presentation viewer (iframe + nav)
-  slides/
-    slide1.html … slide26.html
-  run-in-browser.js   # Local helper to open a slide in the browser
-  vercel.json         # Optional Vercel config
+├── index.html          Viewer (iframe + nav)
+├── slides/
+│   ├── slide1.html
+│   ├── ...
+│   └── slide26.html
+├── scripts/
+│   └── run-in-browser.js
+├── package.json
+├── vercel.json
+└── README.md
 ```
+
+---
+
+## Tech
+
+- Plain HTML/CSS/JS; slides use Tailwind and custom styles.
+- Viewer: single `index.html` that loads slides in an iframe and scales to fit.
+- Local server: [serve](https://github.com/vercel/serve) on port 3000.

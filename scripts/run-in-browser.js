@@ -18,13 +18,12 @@ if (!filename) {
   process.exit(1);
 }
 
-// Resolve path: if just a name like "slide1.html", resolve relative to script directory.
-// Slides live in ./slides/ so try there first for bare names like "slide1.html".
-const baseDir = __dirname;
-const slidesDir = path.join(baseDir, 'slides');
+// Resolve path from project root (parent of scripts/). Slides live in ./slides/.
+const projectRoot = path.join(__dirname, '..');
+const slidesDir = path.join(projectRoot, 'slides');
 let filePath = path.isAbsolute(filename)
   ? filename
-  : path.resolve(baseDir, filename);
+  : path.resolve(projectRoot, filename);
 if (!path.isAbsolute(filename) && !fs.existsSync(filePath) && fs.existsSync(slidesDir)) {
   const inSlides = path.join(slidesDir, path.basename(filename));
   if (fs.existsSync(inSlides)) filePath = inSlides;
