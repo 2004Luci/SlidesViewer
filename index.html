@@ -80,6 +80,28 @@
       border-color: #004080;
     }
 
+    .nav-sep {
+      width: 1px;
+      height: 24px;
+      background: #404040;
+      margin: 0 4px;
+    }
+
+    .nav-controls button.btn-icon {
+      padding: 10px;
+      line-height: 0;
+    }
+
+    .nav-controls button.btn-fullscreen {
+      background: #1e3a5f;
+      border-color: #2d4a6f;
+    }
+
+    .nav-controls button.btn-fullscreen:hover {
+      background: #2d4a6f;
+      border-color: #3d5a7f;
+    }
+
     .frame-wrap {
       flex: 1;
       display: flex;
@@ -154,6 +176,14 @@
       <button type="button" id="btn-prev" title="Previous (←)">Previous</button>
       <button type="button" id="btn-next" class="primary" title="Next (→)">Next</button>
       <button type="button" id="btn-last" title="Last slide">Last</button>
+      <span class="nav-sep" aria-hidden="true"></span>
+      <button type="button" id="btn-fullscreen" class="btn-fullscreen btn-icon"
+        title="Full screen (slide only). Esc to exit." aria-label="Full screen">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+        </svg>
+        
+      </button>
     </nav>
   </header>
   <main class="frame-wrap">
@@ -234,6 +264,7 @@
       btnPrev.addEventListener('click', goPrev);
       btnNext.addEventListener('click', goNext);
       btnLast.addEventListener('click', function () { setSlide(TOTAL_SLIDES); });
+      document.getElementById('btn-fullscreen').addEventListener('click', togglePresentationMode);
 
       // Keyboard
       let digitBuffer = '';
