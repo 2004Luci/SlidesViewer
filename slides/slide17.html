@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>CS Signing: Accountability &amp; Governance</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .navy-text {
+            color: #003366;
+        }
+
+        .navy-bg {
+            background-color: #003366;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Header */
+        .header {
+            padding: 30px 60px 10px 60px;
+            border-bottom: 2px solid #E5E7EB;
+            flex-shrink: 0;
+        }
+
+        /* Content Layout */
+        .main-content {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* Left Visual Panel */
+        .visual-panel {
+            width: 45%;
+            background-color: #f8fafc;
+            border-right: 1px solid #e2e8f0;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Right Content Panel */
+        .text-panel {
+            width: 55%;
+            padding: 50px 60px 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Diagram Styles */
+        .governance-circle {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .center-node {
+            width: 120px;
+            height: 120px;
+            background-color: #003366;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            z-index: 10;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border: 4px solid #fff;
+        }
+
+        .satellite-node {
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            background-color: white;
+            border: 2px solid #cbd5e1;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+            z-index: 5;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .satellite-node h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #003366;
+            font-size: 11px;
+            margin-top: 5px;
+        }
+
+        .satellite-node i {
+            font-size: 24px;
+            color: #3b82f6;
+        }
+
+        /* Positioning Satellites */
+        .node-top {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .node-right {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+
+        .node-bottom {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .node-left {
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        /* Connector Lines */
+        .connector {
+            position: absolute;
+            background-color: #94a3b8;
+            z-index: 1;
+        }
+
+        /* Bullet Points */
+        .bullet-item {
+            display: flex;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+
+        .bullet-icon-wrapper {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background-color: #eff6ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+        }
+
+        .bullet-icon {
+            color: #003366;
+            font-size: 18px;
+        }
+
+        .bullet-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #1f2937;
+            font-size: 18px;
+            margin: 0 0 6px 0;
+        }
+
+        .bullet-content p {
+            color: #4b5563;
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Footer */
+        .footer {
+            height: 50px;
+            background-color: #003366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="flex items-center space-x-2 mb-2">
+                <span
+                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wide">Governance</span>
+                <span class="text-gray-400 text-xs">/</span>
+                <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">CS Role</span>
+            </div>
+            <h1 class="font-montserrat font-bold text-4xl navy-text leading-tight">
+                Accountability &amp; Governance Implications
+            </h1>
+        </div>
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Left Panel: Diagram -->
+            <div class="visual-panel">
+                <div class="absolute top-6 left-6">
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">The Compliance Shield</span>
+                </div>
+                <div class="governance-circle">
+                    <!-- Center Core -->
+                    <div class="center-node">
+                        <i class="fas fa-file-signature text-3xl mb-1"></i>
+                        <span class="text-xs font-bold">CS Sign-off</span>
+                    </div>
+                    <!-- Connectors -->
+                    <div class="connector"
+                        style="width: 2px; height: 100px; top: 110px; left: 50%; transform: translateX(-50%);"></div>
+                    <div class="connector"
+                        style="width: 2px; height: 100px; bottom: 110px; left: 50%; transform: translateX(-50%);"></div>
+                    <div class="connector"
+                        style="height: 2px; width: 100px; left: 110px; top: 50%; transform: translateY(-50%);"></div>
+                    <div class="connector"
+                        style="height: 2px; width: 100px; right: 110px; top: 50%; transform: translateY(-50%);"></div>
+                    <!-- Nodes -->
+                    <div class="satellite-node node-top">
+                        <i class="fas fa-hand-holding-heart text-green-500"></i>
+                        <h5>Stakeholder Trust</h5>
+                    </div>
+                    <div class="satellite-node node-right">
+                        <i class="fas fa-clipboard-check text-blue-500"></i>
+                        <h5>Internal Controls</h5>
+                    </div>
+                    <div class="satellite-node node-bottom">
+                        <i class="fas fa-gavel text-red-500"></i>
+                        <h5>Consequences</h5>
+                    </div>
+                    <div class="satellite-node node-left">
+                        <i class="fas fa-user-shield text-indigo-500"></i>
+                        <h5>Responsibility</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Panel: Bullets -->
+            <div class="text-panel">
+                <div class="mb-2">
+                    <h2 class="text-2xl font-montserrat font-bold text-gray-800 mb-6 border-b-2 border-blue-100 pb-2">
+                        Impact of Authentication</h2>
+                </div>
+                <div class="bullet-item">
+                    <div class="bullet-icon-wrapper">
+                        <i class="fas fa-scale-balanced bullet-icon"></i>
+                    </div>
+                    <div class="bullet-content">
+                        <h3>Statutory Responsibility</h3>
+                        <p>The CS is not just a witness but a <strong>Key Managerial Personnel (KMP)</strong> ensuring
+                            the accuracy of statutory disclosures and vetting compliance with the Companies Act, 2013
+                            and SEBI LODR.</p>
+                    </div>
+                </div>
+                <div class="bullet-item">
+                    <div class="bullet-icon-wrapper">
+                        <i class="fas fa-exclamation-triangle bullet-icon" style="color: #ef4444;"></i>
+                    </div>
+                    <div class="bullet-content">
+                        <h3>Legal Consequences</h3>
+                        <p>Incorrect sign-offs can lead to penalties under <strong>Section 448</strong> (False
+                            Statements) and <strong>Section 447</strong> (Fraud), alongside professional misconduct
+                            charges by ICSI.</p>
+                    </div>
+                </div>
+                <div class="bullet-item">
+                    <div class="bullet-icon-wrapper">
+                        <i class="fas fa-shield-halved bullet-icon"></i>
+                    </div>
+                    <div class="bullet-content">
+                        <h3>Protective Controls</h3>
+                        <p>Mitigate risk through robust documentation: detailed <strong>Board Minutes</strong>,
+                            compliance checklists, working papers, and obtaining <strong>Management Representation
+                                Letters (MRLs)</strong>.</p>
+                    </div>
+                </div>
+                <div class="bullet-item">
+                    <div class="bullet-icon-wrapper">
+                        <i class="fas fa-chart-line bullet-icon" style="color: #10b981;"></i>
+                    </div>
+                    <div class="bullet-content">
+                        <h3>Stakeholder Trust</h3>
+                        <p>A CS-certified financial statement acts as a <strong>governance seal</strong>, enhancing
+                            transparency for investors, regulators, and lenders, and signaling a culture of ethical
+                            compliance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+            <p>Scrutiny of Balance Sheet - CS Compliance Perspective</p>
+            <div class="flex items-center space-x-4">
+                <p>Companies Act, 2013</p>
+                <div class="h-3 w-px bg-white opacity-50"></div>
+                <p>Page 17</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

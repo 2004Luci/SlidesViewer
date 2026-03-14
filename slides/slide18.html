@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Audit Report: Structure and Opinions</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .navy-text {
+            color: #003366;
+        }
+
+        .navy-bg {
+            background-color: #003366;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Header */
+        .header {
+            padding: 30px 60px 15px 60px;
+            border-bottom: 2px solid #E5E7EB;
+            flex-shrink: 0;
+        }
+
+        /* Content Area */
+        .content-area {
+            flex: 1;
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+            background-color: #f8fafc;
+            position: relative;
+        }
+
+        /* Main Grid Layout */
+        .grid-container {
+            display: flex;
+            gap: 40px;
+            height: 100%;
+        }
+
+        /* Left Column: Structure Flow */
+        .structure-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #003366;
+            margin-bottom: 20px;
+            border-left: 4px solid #003366;
+            padding-left: 12px;
+        }
+
+        .flow-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            position: relative;
+        }
+
+        .flow-vertical::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            bottom: 20px;
+            width: 2px;
+            background-color: #cbd5e1;
+            z-index: 1;
+        }
+
+        .flow-item {
+            background: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            z-index: 2;
+            border-left: 4px solid transparent;
+            transition: transform 0.2s;
+        }
+
+        .flow-item:hover {
+            transform: translateX(5px);
+            border-left-color: #003366;
+        }
+
+        .flow-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #f1f5f9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #003366;
+            margin-right: 15px;
+            flex-shrink: 0;
+            border: 2px solid #e2e8f0;
+        }
+
+        .flow-content h4 {
+            font-weight: 700;
+            font-size: 14px;
+            color: #1f2937;
+            margin: 0 0 2px 0;
+        }
+
+        .flow-content p {
+            font-size: 12px;
+            color: #6b7280;
+            margin: 0;
+        }
+
+        /* Right Column: Opinion Types */
+        .opinions-column {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .opinion-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .opinion-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .opinion-icon {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .opinion-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        .opinion-desc {
+            font-size: 12px;
+            color: #4b5563;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        /* Status Colors */
+        .status-green {
+            border-top-color: #10b981;
+        }
+
+        .status-green .opinion-icon {
+            color: #10b981;
+        }
+
+        .status-yellow {
+            border-top-color: #f59e0b;
+        }
+
+        .status-yellow .opinion-icon {
+            color: #f59e0b;
+        }
+
+        .status-orange {
+            border-top-color: #f97316;
+        }
+
+        .status-orange .opinion-icon {
+            color: #f97316;
+        }
+
+        .status-red {
+            border-top-color: #ef4444;
+        }
+
+        .status-red .opinion-icon {
+            color: #ef4444;
+        }
+
+        /* CS Note Box */
+        .cs-note {
+            margin-top: auto;
+            background-color: #eff6ff;
+            border-radius: 8px;
+            padding: 15px;
+            border: 1px solid #bfdbfe;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        /* Footer */
+        .footer {
+            height: 50px;
+            background-color: #003366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+            font-size: 12px;
+            flex-shrink: 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="flex items-center space-x-2 mb-2">
+                <span
+                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wide">Audit
+                    &amp; Assurance</span>
+                <span class="text-gray-400 text-xs">/</span>
+                <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">Reporting</span>
+            </div>
+            <h1 class="font-montserrat font-bold text-4xl navy-text leading-tight">
+                Audit Report: Structure and Opinions
+            </h1>
+        </div>
+        <!-- Main Content -->
+        <div class="content-area">
+            <div class="grid-container">
+                <!-- Left: Structure Flow -->
+                <div class="structure-column">
+                    <h3 class="section-title">Report Structure (SA 700)</h3>
+                    <div class="flow-vertical">
+                        <!-- Item 1 -->
+                        <div class="flow-item">
+                            <div class="flow-icon"><i class="fas fa-heading"></i></div>
+                            <div class="flow-content">
+                                <h4>Opinion &amp; Basis of Opinion</h4>
+                                <p>Primary conclusion and the evidence/framework used.</p>
+                            </div>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="flow-item">
+                            <div class="flow-icon"><i class="fas fa-key"></i></div>
+                            <div class="flow-content">
+                                <h4>Key Audit Matters (KAMs)</h4>
+                                <p>Most significant matters (SA 701) requiring attention.</p>
+                            </div>
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="flow-item">
+                            <div class="flow-icon"><i class="fas fa-tasks"></i></div>
+                            <div class="flow-content">
+                                <h4>Responsibilities</h4>
+                                <p>Management (Preparation) vs. Auditor (Expression of opinion).</p>
+                            </div>
+                        </div>
+                        <!-- Item 4 -->
+                        <div class="flow-item">
+                            <div class="flow-icon"><i class="fas fa-balance-scale"></i></div>
+                            <div class="flow-content">
+                                <h4>Legal &amp; Regulatory Req.</h4>
+                                <p>CARO 2020 reporting, Section 143(3) specifics.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right: Opinion Types -->
+                <div class="opinions-column">
+                    <h3 class="section-title">Types of Audit Opinions</h3>
+                    <div class="opinion-grid">
+                        <!-- Card 1 -->
+                        <div class="opinion-card status-green">
+                            <i class="fas fa-check-circle opinion-icon"></i>
+                            <h4 class="opinion-title">Unmodified (Unqualified)</h4>
+                            <p class="opinion-desc">
+                                "Clean Report". Financial statements give a true and fair view in all material respects.
+                            </p>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="opinion-card status-yellow">
+                            <i class="fas fa-exclamation-triangle opinion-icon"></i>
+                            <h4 class="opinion-title">Qualified Opinion</h4>
+                            <p class="opinion-desc">
+                                "True and fair, except for..." Misstatements are material but not pervasive. Requires
+                                Board explanation.
+                            </p>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="opinion-card status-orange">
+                            <i class="fas fa-times-circle opinion-icon"></i>
+                            <h4 class="opinion-title">Adverse Opinion</h4>
+                            <p class="opinion-desc">
+                                "Do NOT give a true and fair view." Misstatements are both material AND pervasive.
+                                Serious red flag.
+                            </p>
+                        </div>
+                        <!-- Card 4 -->
+                        <div class="opinion-card status-red">
+                            <i class="fas fa-ban opinion-icon"></i>
+                            <h4 class="opinion-title">Disclaimer of Opinion</h4>
+                            <p class="opinion-desc">
+                                Auditor unable to obtain sufficient evidence. Significance is material and pervasive.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- CS Insight -->
+                    <div class="cs-note" style="position: relative; transform: translate(0px, -10.46px);">
+                        <div class="text-blue-800 text-xl mr-3">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-montserrat font-bold text-gray-800 text-sm mb-1">CS Action Point</h4>
+                            <p class="text-gray-600 text-xs">
+                                Any modified opinion (Qualified, Adverse, Disclaimer) triggers <strong>Section
+                                    134(3)(f)</strong>: The Board's Report must include full explanations or comments by
+                                the Board on every qualification, reservation, or adverse remark.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+            <p>Scrutiny of Balance Sheet - CS Compliance Perspective</p>
+            <div class="flex items-center space-x-4">
+                <p>Audit &amp; Governance</p>
+                <div class="h-3 w-px bg-white opacity-50"></div>
+                <p>Page 18</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

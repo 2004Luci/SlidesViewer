@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>CS Signing of Financial Statements: Legal Requirement</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .navy-bg {
+            background-color: #003366;
+        }
+
+        .text-navy {
+            color: #003366;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Header Styling */
+        .header {
+            padding: 40px 60px 20px 60px;
+            border-bottom: 2px solid #E5E7EB;
+        }
+
+        /* List Styling */
+        .custom-list-item {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+        }
+
+        .custom-list-item::before {
+            content: '\f058';
+            /* fa-circle-check */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: #003366;
+            font-size: 14px;
+        }
+
+        /* Right Panel Styling */
+        .visual-panel {
+            background-color: #f8fafc;
+            border-left: 1px solid #e2e8f0;
+        }
+
+        .signature-card {
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-left: 4px solid #003366;
+        }
+
+        .timeline-step {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 5px;
+            bottom: -25px;
+            width: 2px;
+            background-color: #e5e7eb;
+        }
+
+        .timeline-step:last-child::before {
+            display: none;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #003366;
+            border: 3px solid #e5e7eb;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: #003366;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+            color: white;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="flex items-center space-x-2 mb-2">
+                <span
+                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wide">Governance</span>
+                <span class="text-gray-400 text-xs">/</span>
+                <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">Section 134</span>
+            </div>
+            <h1 class="font-montserrat font-bold text-4xl text-navy leading-tight">
+                CS Signing of Financial Statements
+            </h1>
+        </div>
+        <!-- Main Content -->
+        <div class="flex flex-1 overflow-hidden">
+            <!-- Left Column: Content -->
+            <div class="w-7/12 p-10 pr-8 flex flex-col justify-start">
+                <div class="mb-6">
+                    <h2 class="font-montserrat font-bold text-lg text-gray-800 mb-3 border-l-4 border-blue-800 pl-3">
+                        Legal Requirement (Section 134)
+                    </h2>
+                    <div class="text-gray-600 text-sm leading-relaxed">
+                        <p class="mb-3">Financial Statements must be approved by the Board of Directors and signed on
+                            behalf of the Board by:</p>
+                        <div class="custom-list-item">
+                            <p><strong>Chairperson:</strong> If authorized by the Board.</p>
+                        </div>
+                        <div class="custom-list-item">
+                            <p><strong>Directors:</strong> Two directors, one of whom shall be the Managing Director (if
+                                any).</p>
+                        </div>
+                        <div class="custom-list-item">
+                            <p><strong>Chief Executive Officer (CEO):</strong> If he is a director.</p>
+                        </div>
+                        <div class="custom-list-item">
+                            <p><strong>Chief Financial Officer (CFO):</strong> Wherever appointed.</p>
+                        </div>
+                        <div class="custom-list-item">
+                            <p><strong>Company Secretary (CS):</strong> Wherever appointed (Mandatory for paid-up
+                                capital ≥ ₹10 Cr).</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="font-montserrat font-bold text-lg text-gray-800 mb-3 border-l-4 border-blue-800 pl-3">
+                        Authentication &amp; Circulation
+                    </h2>
+                    <div class="text-gray-600 text-sm leading-relaxed">
+                        <div class="custom-list-item">
+                            <p><strong>Date &amp; Place:</strong> Must be clearly mentioned; precedes the auditor's
+                                report date.</p>
+                        </div>
+                        <div class="custom-list-item">
+                            <p><strong>Attachments:</strong> Board’s Report, Auditor's Report, and Annexures (AOC-1,
+                                AOC-2).</p>
+                        </div>
+                        <div class="custom-list-item">
+                            <p><strong>Circulation:</strong> To members at least 21 days before the AGM.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Column: Visual -->
+            <div class="w-5/12 visual-panel p-10 flex flex-col justify-center relative">
+                <!-- Signature Hierarchy Visual -->
+                <div class="mb-8">
+                    <h3 class="text-navy font-bold font-montserrat mb-4 text-center">Authentication Hierarchy</h3>
+                    <div class="space-y-4">
+                        <!-- Card 1 -->
+                        <div class="signature-card p-4 rounded-r-lg flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mr-4">
+                                <i class="fas fa-users text-navy"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 text-sm">Board Approval</h4>
+                                <p class="text-xs text-gray-500">Prerequisite Step</p>
+                            </div>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="signature-card p-4 rounded-r-lg flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mr-4">
+                                <i class="fas fa-file-signature text-navy"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 text-sm">Signing Authority</h4>
+                                <p class="text-xs text-gray-500">Chairperson / 2 Directors + CEO/CFO</p>
+                            </div>
+                        </div>
+                        <!-- Card 3 -->
+                        <div
+                            class="signature-card p-4 rounded-r-lg flex items-center border-l-4 border-yellow-500 bg-blue-50">
+                            <div
+                                class="w-10 h-10 rounded-full bg-white flex items-center justify-center mr-4 shadow-sm">
+                                <i class="fas fa-pen-nib text-navy"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy text-sm">Company Secretary</h4>
+                                <p class="text-xs text-gray-600">Statutory Signatory</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Filing Timeline Mini-Visual -->
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                    <div class="flex items-center justify-between text-xs text-gray-600">
+                        <div class="text-center">
+                            <i class="fas fa-calendar-check text-navy mb-1 block"></i>
+                            <span>Board Mtg</span>
+                        </div>
+                        <div class="h-px bg-gray-300 w-8"></div>
+                        <div class="text-center">
+                            <i class="fas fa-handshake text-navy mb-1 block"></i>
+                            <span>AGM</span>
+                        </div>
+                        <div class="h-px bg-gray-300 w-8"></div>
+                        <div class="text-center">
+                            <i class="fas fa-file-export text-navy mb-1 block"></i>
+                            <span>AOC-4 (30 Days)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Floating Decorative Icon -->
+                <div class="absolute bottom-4 right-4 opacity-5">
+                    <i class="fas fa-signature text-8xl"></i>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+            <p>Scrutiny of Balance Sheet - CS Compliance Perspective</p>
+            <div class="flex items-center space-x-4">
+                <p>Section 134, Companies Act 2013</p>
+                <div class="h-3 w-px bg-white opacity-50"></div>
+                <p>Page 16</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
