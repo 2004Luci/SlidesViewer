@@ -5,12 +5,14 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Accounting Standards vs Ind AS: Compliance Relevance</title>
+    <title>Audit Qualification Case Study</title>
+
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap"
         rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
     <style>
         body {
             margin: 0;
@@ -32,211 +34,288 @@
             overflow: hidden;
         }
 
-        .navy-bg {
-            background-color: #003366;
+        .navy-text {
+            color: #003366;
         }
 
-        .text-navy {
-            color: #003366;
+        .navy-bg {
+            background-color: #003366;
         }
 
         .font-montserrat {
             font-family: 'Montserrat', sans-serif;
         }
 
-        /* Header Styling */
+        /* Header */
+
         .header {
-            padding: 40px 60px 20px 60px;
+            padding: 30px 60px 15px 60px;
             border-bottom: 2px solid #E5E7EB;
+            flex-shrink: 0;
         }
 
-        /* List Styling */
-        .custom-list-item {
-            position: relative;
-            padding-left: 24px;
-            margin-bottom: 14px;
-        }
+        /* Content */
 
-        .custom-list-item::before {
-            content: '\f058';
-            /* fa-circle-check */
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 4px;
-            color: #003366;
-            font-size: 16px;
-        }
-
-        /* Right Panel Styling */
-        .visual-panel {
+        .content-area {
+            flex: 1;
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             background-color: #f8fafc;
-            border-left: 1px solid #e2e8f0;
+            position: relative;
         }
 
-        .grid-card {
-            background: white;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        /* Cards */
+
+        .process-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
         }
+
+        .step-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            width: 23%;
+            padding: 22px;
+            border-top: 4px solid #003366;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .step-icon {
+            font-size: 28px;
+            color: #003366;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .step-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            color: #1f2937;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .step-desc {
+            font-size: 12px;
+            color: #4b5563;
+            line-height: 1.5;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        /* Highlight Box */
+
+        .feature-box {
+            background-color: #eff6ff;
+            border-radius: 6px;
+            padding: 8px;
+            margin-top: 12px;
+            border: 1px solid #bfdbfe;
+        }
+
+        .feature-text {
+            font-size: 11px;
+            color: #1e40af;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Bottom Context */
+
+        .context-box {
+            margin-top: 40px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #003366;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        /* Footer */
 
         .footer {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
             height: 50px;
             background-color: #003366;
+            color: white;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 60px;
-            color: white;
             font-size: 12px;
+            flex-shrink: 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 
 <body>
+
     <div class="slide-container">
+
         <!-- Header -->
+
         <div class="header">
+
             <div class="flex items-center space-x-2 mb-2">
                 <span
-                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wide">Regulatory
-                    Framework</span>
+                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wide">Governance</span>
                 <span class="text-gray-400 text-xs">/</span>
-                <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">Financial Reporting</span>
+                <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">Case Study</span>
             </div>
-            <h1 class="font-montserrat font-bold text-4xl text-navy leading-tight">
-                Accounting Standards vs Ind AS
+
+            <h1 class="font-montserrat font-bold text-3xl navy-text leading-tight">
+                Audit Qualification: Real Case & Board Clarification
             </h1>
+
         </div>
-        <!-- Main Content -->
-        <div class="flex flex-1 overflow-hidden">
-            <!-- Left Column: Content -->
-            <div class="w-7/12 p-10 pr-8 flex flex-col justify-center">
-                <div class="mb-6">
-                    <h2 class="font-montserrat font-bold text-lg text-gray-800 mb-3 border-l-4 border-blue-800 pl-3">
-                        Dual Reporting Regime
-                    </h2>
-                    <div class="text-gray-600 leading-relaxed text-sm">
-                        <div class="custom-list-item">
-                            <p><strong>Accounting Standards (AS):</strong> Applies to Non-Ind AS companies
-                                (SMCs/Non-SMCs). Follows Schedule III Division I format. Principles based on historical
-                                cost.</p>
-                        </div>
-                        <div class="custom-list-item">
-                            <p><strong>Indian Accounting Standards (Ind AS):</strong> Converged with IFRS. Applies to
-                                listed companies and unlisted companies with Net Worth ≥ ₹250 Cr. Follows Schedule III
-                                Division II (or III for NBFCs).</p>
-                        </div>
-                        <div class="custom-list-item">
-                            <p><strong>Key Difference:</strong> Ind AS focuses on Fair Value measurement, substance over
-                                form, and extensive disclosures compared to AS.</p>
-                        </div>
+
+        <!-- Content -->
+
+        <div class="content-area">
+
+            <div class="process-container">
+
+                <!-- Company -->
+
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-building"></i>
                     </div>
+
+                    <h3 class="step-title">Company</h3>
+
+                    <p class="step-desc">
+                        Jet Airways (India) Ltd. - Listed airline company that faced severe financial distress leading to
+                        suspension of operations in 2019.
+                    </p>
+
+                    <div class="feature-box">
+                        <p class="feature-text">Annual Report FY 2018-19</p>
+                    </div>
+
                 </div>
+
+                <!-- Audit Qualification -->
+
+                <div class="step-card">
+
+                    <div class="step-icon">
+                        <i class="fas fa-triangle-exclamation"></i>
+                    </div>
+
+                    <h3 class="step-title">Audit Qualification</h3>
+
+                    <p class="step-desc">
+                        Auditors expressed concerns regarding the company's ability to continue as a
+                        <strong>going concern</strong> due to heavy losses, loan defaults, and negative net worth.
+                    </p>
+
+                    <div class="feature-box">
+                        <p class="feature-text">Qualified / Emphasis of Matter</p>
+                    </div>
+
+                </div>
+
+                <!-- Directors Clarification -->
+
+                <div class="step-card">
+
+                    <div class="step-icon">
+                        <i class="fas fa-file-lines"></i>
+                    </div>
+
+                    <h3 class="step-title">Directors' Clarification</h3>
+
+                    <p class="step-desc">
+                        The Board stated that management was actively pursuing a
+                        <strong>resolution plan under the Insolvency & Bankruptcy Code (IBC)</strong> and expected
+                        revival through a strategic investor.
+                    </p>
+
+                    <div class="feature-box">
+                        <p class="feature-text">Sec 134(3)(f) Explanation</p>
+                    </div>
+
+                </div>
+
+                <!-- Governance Insight -->
+
+                <div class="step-card">
+
+                    <div class="step-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+
+                    <h3 class="step-title">Governance Lesson</h3>
+
+                    <p class="step-desc">
+                        Directors must clearly explain audit qualifications in the
+                        <strong>Board's Report</strong>, outlining causes and corrective plans to maintain transparency
+                        with shareholders and regulators.
+                    </p>
+
+                    <div class="feature-box">
+                        <p class="feature-text">CS ensures disclosure quality</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Context Box -->
+
+            <div class="context-box">
+
+                <div class="text-blue-800 text-2xl mr-4 mt-1">
+                    <i class="fas fa-shield-halved"></i>
+                </div>
+
                 <div>
-                    <h2 class="font-montserrat font-bold text-lg text-gray-800 mb-3 border-l-4 border-blue-800 pl-3">
-                        CS Focus Areas &amp; Compliance
-                    </h2>
-                    <div class="text-gray-600 leading-relaxed text-sm">
-                        <div class="custom-list-item">
-                            <p><strong>Applicability Check:</strong> Verify net worth threshold annually. Once Ind AS
-                                applies, it applies forever (even if net worth falls).</p>
-                        </div>
-                        <div class="custom-list-item">
-                            <p><strong>Consolidation Scope:</strong> Ind AS 110 (Control) vs AS 21. Check for de facto
-                                control over entities not legally owned but operationally controlled.</p>
-                        </div>
-                        <div class="custom-list-item">
-                            <p><strong>Financial Instruments:</strong> Ind AS 109 requires ECL (Expected Credit Loss)
-                                model for provisions, impacting profitability and covenant ratios.</p>
-                        </div>
-                        <div class="custom-list-item">
-                            <p><strong>Transition Disclosures:</strong> Ensure 'First-time Adoption' (Ind AS 101)
-                                reconciliations are approved by Audit Committee and Board.</p>
-                        </div>
-                    </div>
+
+                    <h4 class="font-montserrat font-bold text-gray-800 text-lg mb-1">
+                        CS Perspective: Explaining Audit Qualifications
+                    </h4>
+
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Under <strong>Section 134(3)(f) of the Companies Act, 2013</strong>, the Board must provide
+                        explanations for every qualification, reservation, or adverse remark made by auditors.
+                        The Company Secretary plays a crucial role in ensuring the explanation is legally compliant,
+                        factually accurate, and demonstrates corrective action to reassure investors and regulators.
+                    </p>
+
                 </div>
+
             </div>
-            <!-- Right Column: Visual -->
-            <div class="w-5/12 visual-panel p-8 flex flex-col justify-center relative">
-                <!-- Comparative Visual -->
-                <div class="flex flex-col space-y-4 h-full justify-center">
-                    <!-- Card 1: Applicability -->
-                    <div class="grid-card rounded-lg p-5 border-l-4 border-blue-600">
-                        <div class="flex items-center mb-2">
-                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
-                                <i class="fas fa-sitemap text-blue-600"></i>
-                            </div>
-                            <h3 class="font-bold text-gray-800 text-sm">Applicability Hierarchy</h3>
-                        </div>
-                        <div class="pl-11">
-                            <p class="text-xs text-gray-600 mb-1"><span class="font-semibold">Phase I:</span> Listed
-                                &amp; Net Worth ≥ ₹500 Cr</p>
-                            <p class="text-xs text-gray-600 mb-1"><span class="font-semibold">Phase II:</span> Listed
-                                &amp; Net Worth ≥ ₹250 Cr</p>
-                            <p class="text-xs text-gray-500 italic">Applies to Holding, Subsidiary, Associate &amp; JV
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Card 2: Impact -->
-                    <div class="grid-card rounded-lg p-5 border-l-4 border-yellow-500">
-                        <div class="flex items-center mb-2">
-                            <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center mr-3">
-                                <i class="fas fa-balance-scale text-yellow-600"></i>
-                            </div>
-                            <h3 class="font-bold text-gray-800 text-sm">Major Impact Areas</h3>
-                        </div>
-                        <div class="pl-11 grid grid-cols-2 gap-2">
-                            <div class="bg-gray-50 p-2 rounded text-center">
-                                <p class="text-xs font-semibold text-gray-700">Financial Instruments</p>
-                            </div>
-                            <div class="bg-gray-50 p-2 rounded text-center">
-                                <p class="text-xs font-semibold text-gray-700">Revenue Recognition</p>
-                            </div>
-                            <div class="bg-gray-50 p-2 rounded text-center">
-                                <p class="text-xs font-semibold text-gray-700">Leases (Ind AS 116)</p>
-                            </div>
-                            <div class="bg-gray-50 p-2 rounded text-center">
-                                <p class="text-xs font-semibold text-gray-700">Business Comb.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 3: CS Action -->
-                    <div class="grid-card rounded-lg p-5 border-l-4 border-green-500">
-                        <div class="flex items-center mb-2">
-                            <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-3">
-                                <i class="fas fa-clipboard-check text-green-600"></i>
-                            </div>
-                            <h3 class="font-bold text-gray-800 text-sm">CS Action Plan</h3>
-                        </div>
-                        <div class="pl-11">
-                            <p class="text-xs text-gray-600">Monitor Net Worth $\rightarrow$ Alert Management
-                                $\rightarrow$ Facilitate Impact Assessment $\rightarrow$ Ensure Disclosure Compliance
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Floating Decorative Icon -->
-                <div class="absolute bottom-4 right-4 opacity-5">
-                    <i class="fas fa-book-journal-whills text-9xl"></i>
-                </div>
-            </div>
+
         </div>
+
         <!-- Footer -->
+
         <div class="footer">
+
             <p>Scrutiny of Balance Sheet - CS Compliance Perspective</p>
+
             <div class="flex items-center space-x-4">
-                <p>Companies Act, 2013</p>
+                <p>Audit Case Study</p>
                 <div class="h-3 w-px bg-white opacity-50"></div>
                 <p>Page 23</p>
             </div>
+
         </div>
+
     </div>
+
 </body>
 
 </html>
