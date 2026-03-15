@@ -1,0 +1,341 @@
+<!-- <!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Thank You</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #003366 0%, #004080 50%, #002244 100%);
+            overflow: hidden;
+        }
+
+        .slide-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .thank-you-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 60px 80px;
+        }
+
+        .thank-you-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.35);
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+
+        .thank-you-icon i {
+            font-size: 44px;
+            color: #fff;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
+        }
+
+        .thank-you-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 56px;
+            color: #ffffff;
+            letter-spacing: 2px;
+            margin: 0 0 20px;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .thank-you-subtitle {
+            font-size: 22px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            max-width: 560px;
+            margin: 0 auto 48px;
+            line-height: 1.5;
+        }
+
+        .thank-you-divider {
+            width: 120px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            margin: 0 auto 36px;
+            border-radius: 2px;
+        }
+
+        .thank-you-questions {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 26px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.95);
+            margin: 0 0 12px;
+        }
+
+        .thank-you-hint {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <div class="thank-you-content">
+            <div class="thank-you-icon">
+                <i class="fas fa-handshake"></i>
+            </div>
+            <h1 class="thank-you-title">Thank You</h1>
+            <p class="thank-you-subtitle">Thank you for your time and attention. We hope this presentation was
+                informative and useful.</p>
+            <div class="thank-you-divider"></div>
+            <p class="thank-you-questions">Questions?</p>
+            <p class="thank-you-hint">We’re happy to discuss further.</p>
+        </div>
+    </div>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Thank You</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .navy-text {
+            color: #003366;
+        }
+
+        .navy-bg {
+            background-color: #003366;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Header */
+
+        .header {
+            padding: 30px 60px 15px 60px;
+            border-bottom: 2px solid #E5E7EB;
+            flex-shrink: 0;
+        }
+
+        /* Content */
+
+        .content-area {
+            flex: 1;
+            padding: 40px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8fafc;
+        }
+
+        /* Thank You Card */
+
+        .thank-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            padding: 60px 80px;
+            text-align: center;
+            max-width: 700px;
+            border-top: 4px solid #003366;
+        }
+
+        .icon-circle {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: #eff6ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+
+        .icon-circle i {
+            font-size: 40px;
+            color: #003366;
+        }
+
+        .thank-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #003366;
+            margin-bottom: 10px;
+        }
+
+        .thank-subtitle {
+            font-size: 18px;
+            color: #4b5563;
+            margin-bottom: 30px;
+        }
+
+        .questions {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 22px;
+            color: #1f2937;
+        }
+
+        .hint {
+            font-size: 14px;
+            color: #6b7280;
+            margin-top: 6px;
+        }
+
+        /* Footer */
+
+        .footer {
+            height: 50px;
+            background-color: #003366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+            font-size: 12px;
+            flex-shrink: 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="slide-container">
+
+        <!-- Header -->
+
+        <div class="header">
+
+            <div class="flex items-center space-x-2 mb-2">
+                <span
+                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wide">Conclusion</span>
+                <span class="text-gray-400 text-xs">/</span>
+                <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">Discussion</span>
+            </div>
+        </div>
+
+        <!-- Content -->
+
+        <div class="content-area">
+            <div class="thank-card">
+                <div class="icon-circle">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h2 class="thank-title">Thank You</h2>
+                <p class="thank-subtitle">
+                    Thank you for your time and attention.
+                    We hope the presentation provided useful insights into the
+                    <strong>Scrutiny of Balance Sheet from a CS Compliance Perspective.</strong>
+                </p>
+                <p class="questions">Questions?</p>
+                <p class="hint">Happy to discuss further.</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+
+        <div class="footer">
+
+            <p>Scrutiny of Balance Sheet - CS Compliance Perspective</p>
+
+            <div class="flex items-center space-x-4">
+                <p>Conclusion</p>
+                <div class="h-3 w-px bg-white opacity-50"></div>
+                <p>Page 28</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
