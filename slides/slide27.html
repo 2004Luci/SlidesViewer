@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Conclusion: CS-led Financial Scrutiny</title>
+    <title>Cost Records and Cost Audit: Rules 2014</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap"
@@ -54,209 +54,84 @@
         /* Content Area */
         .content-area {
             flex: 1;
-            padding: 40px 60px;
-            display: flex;
-            gap: 50px;
-            align-items: center;
-        }
-
-        /* Left Column: Key Takeaways */
-        .takeaways-column {
-            flex: 1;
+            padding: 25px 60px 40px 60px;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            gap: 20px;
         }
 
-        .takeaway-card {
-            background-color: #f8fafc;
-            border-left: 5px solid #003366;
-            padding: 15px 20px;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s;
+        /* Checklist Table */
+        .checklist-container {
+            width: 100%;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
         }
 
-        .takeaway-card:hover {
-            transform: translateX(5px);
-            background-color: #f0f9ff;
-        }
-
-        .takeaway-title {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            color: #1f2937;
-            font-size: 16px;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-        }
-
-        .takeaway-text {
-            font-size: 13px;
-            color: #4b5563;
-            line-height: 1.5;
-            margin: 0;
-        }
-
-        /* Right Column: Visual Diagram */
-        .visual-column {
-            flex: 1.2;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        /* Ecosystem Diagram Styles */
-        .ecosystem-container {
-            position: relative;
-            width: 450px;
-            height: 450px;
-        }
-
-        /* Center Hub */
-        .hub {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 140px;
-            height: 140px;
-            background: linear-gradient(135deg, #003366 0%, #1e40af 100%);
-            /* Simulating depth with solid colors could work too, but tailored gradient is supported in modern browsers. Fallback to solid color for safety in export */
+        .checklist-header {
             background-color: #003366;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             color: white;
-            z-index: 10;
-            box-shadow: 0 10px 25px rgba(0, 51, 102, 0.3);
-            border: 4px solid #ffffff;
-        }
-
-        .hub-icon {
-            font-size: 32px;
-            margin-bottom: 8px;
-        }
-
-        .hub-text {
+            display: grid;
+            grid-template-columns: 2fr 3fr 3fr 1.5fr;
+            padding: 12px 24px;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 14px;
-            text-align: center;
-            line-height: 1.2;
-        }
-
-        /* Orbiting Nodes */
-        .node {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            border: 2px solid #e2e8f0;
-            z-index: 5;
-        }
-
-        .node-icon {
-            font-size: 20px;
-            margin-bottom: 5px;
-            color: #4b5563;
-        }
-
-        .node-text {
-            font-family: 'Open Sans', sans-serif;
             font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.025em;
+        }
+
+        .checklist-row {
+            display: grid;
+            grid-template-columns: 2fr 3fr 3fr 1.5fr;
+            padding: 12px 24px;
+            border-bottom: 1px solid #f3f4f6;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+
+        .checklist-row:last-child {
+            border-bottom: none;
+        }
+
+        .checklist-row:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .checklist-row:hover {
+            background-color: #eff6ff;
+        }
+
+        /* Badge Styles */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            border-radius: 9999px;
             font-size: 11px;
-            text-align: center;
-            color: #1f2937;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
-        /* Positioning Nodes */
-        .node-1 {
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            border-top: 4px solid #10b981;
+        .badge-critical {
+            background-color: #fee2e2;
+            color: #991b1b;
         }
 
-        /* Top: Scrutiny */
-        .node-2 {
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-            border-right: 4px solid #f59e0b;
+        .badge-mandatory {
+            background-color: #fef3c7;
+            color: #92400e;
         }
 
-        /* Right: Analysis */
-        .node-3 {
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            border-bottom: 4px solid #ef4444;
+        .badge-procedural {
+            background-color: #d1fae5;
+            color: #065f46;
         }
 
-        /* Bottom: Compliance */
-        .node-4 {
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            border-left: 4px solid #3b82f6;
-        }
-
-        /* Left: Reporting */
-
-        /* Connecting Lines */
-        .connector-ring {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            height: 300px;
-            border: 2px dashed #cbd5e1;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        /* Arrows/Flow indicators */
-        .arrow-icon {
-            position: absolute;
-            color: #94a3b8;
-            font-size: 16px;
-        }
-
-        .arrow-1 {
-            top: 15%;
-            right: 15%;
-            transform: rotate(45deg);
-        }
-
-        .arrow-2 {
-            bottom: 15%;
-            right: 15%;
-            transform: rotate(135deg);
-        }
-
-        .arrow-3 {
-            bottom: 15%;
-            left: 15%;
-            transform: rotate(225deg);
-        }
-
-        .arrow-4 {
-            top: 15%;
-            left: 15%;
-            transform: rotate(315deg);
+        .check-icon {
+            color: #059669;
+            margin-right: 8px;
         }
 
         /* Footer */
@@ -283,107 +158,140 @@
         <div class="header">
             <div class="flex items-center space-x-2 mb-2">
                 <span
-                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wide">Summary</span>
+                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wide">Statutory
+                    Compliance</span>
                 <span class="text-gray-400 text-xs">/</span>
-                <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">Key Takeaways</span>
+                <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">Section 148</span>
             </div>
             <h1 class="font-montserrat font-bold text-4xl navy-text leading-tight">
-                Conclusion: CS-led Financial Scrutiny
+                Cost Records &amp; Cost Audit: Rules 2014
             </h1>
         </div>
         <!-- Main Content -->
         <div class="content-area">
-            <!-- Left: Key Points -->
-            <div class="takeaways-column">
-                <div class="takeaway-card">
-                    <div class="takeaway-title">
-                        <i class="fas fa-search-dollar text-green-500 mr-3"></i>
-                        <p>Scrutiny Beyond Filings</p>
-                    </div>
-                    <p class="takeaway-text">
-                        The CS role has evolved from merely filing forms to ensuring the qualitative integrity of
-                        financial data. Thorough scrutiny of the Balance Sheet ensures the "True and Fair View" mandate
-                        is genuinely met.
-                    </p>
+            <div class="checklist-container">
+                <!-- Table Header -->
+                <div class="checklist-header">
+                    <div>Category</div>
+                    <div>Rule / Requirement</div>
+                    <div>CS Verification &amp; Role</div>
+                    <div>Priority</div>
                 </div>
-                <div class="takeaway-card" style="border-left-color: #f59e0b;">
-                    <div class="takeaway-title">
-                        <i class="fas fa-chart-pie text-yellow-500 mr-3"></i>
-                        <p>Interpretation is Power</p>
+                <!-- Row 1 -->
+                <div class="checklist-row">
+                    <div class="font-bold text-gray-700 text-sm">Applicability Check</div>
+                    <div class="text-sm text-gray-600">
+                        <i class="fas fa-calculator check-icon"></i> Turnover Thresholds (Rule 3)
                     </div>
-                    <p class="takeaway-text">
-                        Using tools like Ratio Analysis, Trend Analysis, and Normalized Earnings empowers the CS to
-                        provide strategic insights to the Board, identifying red flags before they become compliance
-                        failures.
-                    </p>
+                    <div class="text-xs text-gray-500 leading-tight">
+                        <p>Regulated Sectors: Overall turnover >= ₹35 Cr.<br />Audit: Overall >= ₹50 Cr &amp; Product >=
+                            ₹25 Cr.</p>
+                    </div>
+                    <div>
+                        <span class="badge badge-critical"><i class="fas fa-exclamation-circle mr-1"></i>
+                            Critical</span>
+                    </div>
                 </div>
-                <div class="takeaway-card" style="border-left-color: #ef4444;">
-                    <div class="takeaway-title">
-                        <i class="fas fa-shield-alt text-red-500 mr-3"></i>
-                        <p>Compliance as a Shield</p>
+                <!-- Row 2 -->
+                <div class="checklist-row">
+                    <div class="font-bold text-gray-700 text-sm">Record Maintenance</div>
+                    <div class="text-sm text-gray-600">
+                        <i class="fas fa-file-invoice-dollar check-icon"></i> Form CRA-1 (Rule 5)
                     </div>
-                    <p class="takeaway-text">
-                        Detailed checks against Schedule III, CARO 2020, and Accounting Standards protect the company
-                        and directors from penal provisions and reputational damage associated with financial
-                        misstatements.
-                    </p>
+                    <div class="text-xs text-gray-500 leading-tight">
+                        <p>Ensure cost records are maintained regularly in CRA-1 format. Verify integration with
+                            financial accounts.</p>
+                    </div>
+                    <div>
+                        <span class="badge badge-mandatory"><i class="fas fa-check-circle mr-1"></i> Mandatory</span>
+                    </div>
                 </div>
-                <div class="takeaway-card" style="border-left-color: #3b82f6;">
-                    <div class="takeaway-title">
-                        <i class="fas fa-handshake text-blue-500 mr-3"></i>
-                        <p>Trust &amp; Governance</p>
+                <!-- Row 3 -->
+                <div class="checklist-row">
+                    <div class="font-bold text-gray-700 text-sm">Auditor Appointment</div>
+                    <div class="text-sm text-gray-600">
+                        <i class="fas fa-user-tie check-icon"></i> Form CRA-2 (Rule 6)
                     </div>
-                    <p class="takeaway-text">
-                        Ultimately, a rigorously scrutinized financial statement builds unshakeable trust with
-                        shareholders, lenders, and regulators, marking the pinnacle of mature Corporate Governance.
-                    </p>
+                    <div class="text-xs text-gray-500 leading-tight">
+                        <p>File CRA-2 within 30 days of Board meeting or 180 days of FY start. Check Board Resolution.
+                        </p>
+                    </div>
+                    <div>
+                        <span class="badge badge-critical"><i class="fas fa-clock mr-1"></i> Critical</span>
+                    </div>
+                </div>
+                <!-- Row 4 -->
+                <div class="checklist-row">
+                    <div class="font-bold text-gray-700 text-sm">Audit Report</div>
+                    <div class="text-sm text-gray-600">
+                        <i class="fas fa-file-contract check-icon"></i> Form CRA-3
+                    </div>
+                    <div class="text-xs text-gray-500 leading-tight">
+                        <p>Receive report from Cost Auditor within 180 days of FY end. Board to review
+                            reservations/qualifications.</p>
+                    </div>
+                    <div>
+                        <span class="badge badge-mandatory"><i class="fas fa-eye mr-1"></i> Mandatory</span>
+                    </div>
+                </div>
+                <!-- Row 5 -->
+                <div class="checklist-row">
+                    <div class="font-bold text-gray-700 text-sm">Filing with ROC</div>
+                    <div class="text-sm text-gray-600">
+                        <i class="fas fa-file-export check-icon"></i> Form CRA-4 (XBRL)
+                    </div>
+                    <div class="text-xs text-gray-500 leading-tight">
+                        <p>File Audit Report with Central Govt within 30 days of receipt. Attach Board's explanation on
+                            qualifications.</p>
+                    </div>
+                    <div>
+                        <span class="badge badge-critical"><i class="fas fa-file-signature mr-1"></i> Critical</span>
+                    </div>
+                </div>
+                <!-- Row 6 -->
+                <div class="checklist-row">
+                    <div class="font-bold text-gray-700 text-sm">Casual Vacancy</div>
+                    <div class="text-sm text-gray-600">
+                        <i class="fas fa-chair check-icon"></i> Vacancy Filling
+                    </div>
+                    <div class="text-xs text-gray-500 leading-tight">
+                        <p>Fill vacancy within 30 days via Board Meeting. File new CRA-2 with ROC.</p>
+                    </div>
+                    <div>
+                        <span class="badge badge-procedural"><i class="fas fa-flag mr-1"></i> Procedural</span>
+                    </div>
+                </div>
+                <!-- Row 7 -->
+                <div class="checklist-row">
+                    <div class="font-bold text-gray-700 text-sm">Exemptions</div>
+                    <div class="text-sm text-gray-600">
+                        <i class="fas fa-shield-alt check-icon"></i> Audit Exemption
+                    </div>
+                    <div class="text-xs text-gray-500 leading-tight space-y-1">
+                        <p>Verify if Export Revenue &gt; 75% or operating in SEZ (Rule 3). Document exemption rationale.
+                        </p>
+                        <p>Exemption extends to micro and small enterprises</p>
+                    </div>
+                    <div>
+                        <span class="badge badge-procedural"><i class="fas fa-info-circle mr-1"></i> Info</span>
+                    </div>
                 </div>
             </div>
-            <!-- Right: Ecosystem Diagram -->
-            <div class="visual-column">
-                <div class="ecosystem-container">
-                    <!-- Connector Ring -->
-                    <div class="connector-ring"></div>
-                    <!-- Directional Arrows -->
-                    <i class="fas fa-chevron-right arrow-icon arrow-1"></i>
-                    <i class="fas fa-chevron-right arrow-icon arrow-2"></i>
-                    <i class="fas fa-chevron-right arrow-icon arrow-3"></i>
-                    <i class="fas fa-chevron-right arrow-icon arrow-4"></i>
-                    <!-- Center Hub -->
-                    <div class="hub">
-                        <i class="fas fa-landmark hub-icon"></i>
-                        <div class="hub-text">Stronger<br />Governance</div>
-                    </div>
-                    <!-- Node 1: Top (Input) -->
-                    <div class="node node-1">
-                        <i class="fas fa-file-invoice-dollar node-icon" style="color: #10b981;"></i>
-                        <div class="node-text">Financial<br />Statements</div>
-                    </div>
-                    <!-- Node 2: Right (Process) -->
-                    <div class="node node-2">
-                        <i class="fas fa-microscope node-icon" style="color: #f59e0b;"></i>
-                        <div class="node-text">Scrutiny &amp;<br />Analysis</div>
-                    </div>
-                    <!-- Node 3: Bottom (Control) -->
-                    <div class="node node-3">
-                        <i class="fas fa-gavel node-icon" style="color: #ef4444;"></i>
-                        <div class="node-text">Regulatory<br />Compliance</div>
-                    </div>
-                    <!-- Node 4: Left (Output) -->
-                    <div class="node node-4">
-                        <i class="fas fa-globe node-icon" style="color: #3b82f6;"></i>
-                        <div class="node-text">Transparency<br />&amp; Trust</div>
-                    </div>
-                </div>
+            <!-- Bottom Note -->
+            <div class="mt-4 flex items-center text-xs text-gray-500 bg-blue-50 p-3 rounded border border-blue-100">
+                <i class="fas fa-info-circle text-blue-500 mr-2 text-lg"></i>
+                <p><strong>Note:</strong> Non-compliance with Section 148 attracts penalties for both Company (min
+                    ₹25,000)
+                    and Officers/Auditors. CS must track turnover limits annually.</p>
             </div>
         </div>
         <!-- Footer -->
         <div class="footer">
             <p>Scrutiny of Balance Sheet - CS Compliance Perspective</p>
             <div class="flex items-center space-x-4">
-                <p>Summary &amp; Conclusion</p>
+                <p>Cost Audit Compliance</p>
                 <div class="h-3 w-px bg-white opacity-50"></div>
-                <p>Page 26</p>
+                <p>Page 27</p>
             </div>
         </div>
     </div>
