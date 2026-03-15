@@ -5,12 +5,14 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Conclusion: CS-led Financial Scrutiny</title>
+    <title>Related Party Transactions</title>
+
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap"
         rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
     <style>
         body {
             margin: 0;
@@ -28,248 +30,114 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            background-color: #ffffff;
-            overflow: hidden;
-        }
-
-        .navy-bg {
-            background-color: #003366;
+            background: #ffffff;
         }
 
         .navy-text {
             color: #003366;
         }
 
+        .navy-bg {
+            background: #003366;
+        }
+
         .font-montserrat {
             font-family: 'Montserrat', sans-serif;
         }
 
-        /* Header */
         .header {
-            padding: 30px 60px 15px 60px;
+            padding: 18px 60px 10px 60px;
             border-bottom: 2px solid #E5E7EB;
             flex-shrink: 0;
         }
 
-        /* Content Area */
         .content-area {
             flex: 1;
-            padding: 40px 60px;
-            display: flex;
-            gap: 50px;
-            align-items: center;
-        }
-
-        /* Left Column: Key Takeaways */
-        .takeaways-column {
-            flex: 1;
+            min-height: 0;
+            padding: 16px 60px 20px 60px;
+            background: #f8fafc;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 12px;
         }
 
-        .takeaway-card {
-            background-color: #f8fafc;
-            border-left: 5px solid #003366;
-            padding: 15px 20px;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s;
+        /* Definition Cards */
+
+        .definition-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
         }
 
-        .takeaway-card:hover {
-            transform: translateX(5px);
-            background-color: #f0f9ff;
+        .definition-card {
+            background: white;
+            border-radius: 8px;
+            padding: 12px 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid #003366;
         }
 
-        .takeaway-title {
+        .definition-title {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            color: #1f2937;
-            font-size: 16px;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
+            font-size: 15px;
+            color: #003366;
+            margin-bottom: 4px;
         }
 
-        .takeaway-text {
-            font-size: 13px;
-            color: #4b5563;
-            line-height: 1.5;
-            margin: 0;
+        /* Comparison Table */
+
+        .comparison-table {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
         }
 
-        /* Right Column: Visual Diagram */
-        .visual-column {
-            flex: 1.2;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        /* Ecosystem Diagram Styles */
-        .ecosystem-container {
-            position: relative;
-            width: 450px;
-            height: 450px;
-        }
-
-        /* Center Hub */
-        .hub {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 140px;
-            height: 140px;
-            background: linear-gradient(135deg, #003366 0%, #1e40af 100%);
-            /* Simulating depth with solid colors could work too, but tailored gradient is supported in modern browsers. Fallback to solid color for safety in export */
-            background-color: #003366;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .table-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            background: #003366;
             color: white;
-            z-index: 10;
-            box-shadow: 0 10px 25px rgba(0, 51, 102, 0.3);
-            border: 4px solid #ffffff;
-        }
-
-        .hub-icon {
-            font-size: 32px;
-            margin-bottom: 8px;
-        }
-
-        .hub-text {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 14px;
-            text-align: center;
-            line-height: 1.2;
-        }
-
-        /* Orbiting Nodes */
-        .node {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            border: 2px solid #e2e8f0;
-            z-index: 5;
-        }
-
-        .node-icon {
-            font-size: 20px;
-            margin-bottom: 5px;
-            color: #4b5563;
-        }
-
-        .node-text {
-            font-family: 'Open Sans', sans-serif;
             font-weight: 600;
-            font-size: 11px;
-            text-align: center;
-            color: #1f2937;
+            font-size: 12px;
+            padding: 6px 20px;
         }
 
-        /* Positioning Nodes */
-        .node-1 {
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            border-top: 4px solid #10b981;
+        .table-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            padding: 6px 20px;
+            font-size: 12px;
+            border-bottom: 1px solid #f1f5f9;
         }
 
-        /* Top: Scrutiny */
-        .node-2 {
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-            border-right: 4px solid #f59e0b;
+        .table-row:nth-child(even) {
+            background: #f8fafc;
         }
 
-        /* Right: Analysis */
-        .node-3 {
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            border-bottom: 4px solid #ef4444;
-        }
+        /* Explanation Box */
 
-        /* Bottom: Compliance */
-        .node-4 {
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            border-left: 4px solid #3b82f6;
-        }
-
-        /* Left: Reporting */
-
-        /* Connecting Lines */
-        .connector-ring {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            height: 300px;
-            border: 2px dashed #cbd5e1;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        /* Arrows/Flow indicators */
-        .arrow-icon {
-            position: absolute;
-            color: #94a3b8;
-            font-size: 16px;
-        }
-
-        .arrow-1 {
-            top: 15%;
-            right: 15%;
-            transform: rotate(45deg);
-        }
-
-        .arrow-2 {
-            bottom: 15%;
-            right: 15%;
-            transform: rotate(135deg);
-        }
-
-        .arrow-3 {
-            bottom: 15%;
-            left: 15%;
-            transform: rotate(225deg);
-        }
-
-        .arrow-4 {
-            top: 15%;
-            left: 15%;
-            transform: rotate(315deg);
+        .context-box {
+            background: white;
+            border-radius: 8px;
+            padding: 12px 16px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #003366;
         }
 
         /* Footer */
+
         .footer {
             height: 50px;
-            background-color: #003366;
+            background: #003366;
             color: white;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 60px;
             font-size: 12px;
-            flex-shrink: 0;
             position: absolute;
             bottom: 0;
             width: 100%;
@@ -278,110 +146,131 @@
 </head>
 
 <body>
+
     <div class="slide-container">
+
         <!-- Header -->
+
         <div class="header">
+
             <div class="flex items-center space-x-2 mb-2">
                 <span
-                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wide">Summary</span>
+                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-0.5 rounded uppercase tracking-wide">Financial
+                    Reporting</span>
                 <span class="text-gray-400 text-xs">/</span>
-                <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">Key Takeaways</span>
+                <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">Related Party
+                    Transactions</span>
             </div>
-            <h1 class="font-montserrat font-bold text-4xl navy-text leading-tight">
-                Conclusion: CS-led Financial Scrutiny
+
+            <h1 class="font-montserrat font-bold text-3xl navy-text">
+                Definition of Related Party Transactions (RPT)
             </h1>
+
         </div>
-        <!-- Main Content -->
+
+        <!-- Content -->
+
         <div class="content-area">
-            <!-- Left: Key Points -->
-            <div class="takeaways-column">
-                <div class="takeaway-card">
-                    <div class="takeaway-title">
-                        <i class="fas fa-search-dollar text-green-500 mr-3"></i>
-                        <p>Scrutiny Beyond Filings</p>
-                    </div>
-                    <p class="takeaway-text">
-                        The CS role has evolved from merely filing forms to ensuring the qualitative integrity of
-                        financial data. Thorough scrutiny of the Balance Sheet ensures the "True and Fair View" mandate
-                        is genuinely met.
+
+            <!-- Definitions -->
+
+            <div class="definition-grid">
+
+                <div class="definition-card">
+                    <div class="definition-title">Ind AS 24 Definition</div>
+                    <p class="text-sm text-gray-600">
+                        Indian Accounting Standards (Ind AS), particularly <strong>Ind AS 24</strong>, define a Related
+                        Party Transaction (RPT) as a transfer of resources, services, or obligations between a reporting
+                        entity and a related party, regardless of whether a price is charged.
                     </p>
                 </div>
-                <div class="takeaway-card" style="border-left-color: #f59e0b;">
-                    <div class="takeaway-title">
-                        <i class="fas fa-chart-pie text-yellow-500 mr-3"></i>
-                        <p>Interpretation is Power</p>
-                    </div>
-                    <p class="takeaway-text">
-                        Using tools like Ratio Analysis, Trend Analysis, and Normalized Earnings empowers the CS to
-                        provide strategic insights to the Board, identifying red flags before they become compliance
-                        failures.
+
+                <div class="definition-card">
+                    <div class="definition-title">SEBI LODR Definition</div>
+                    <p class="text-sm text-gray-600">
+                        Under <strong>SEBI (Listing Obligations and Disclosure Requirements) Regulations</strong>, a
+                        related party transaction means any transaction involving a transfer of resources, services, or
+                        obligations between a listed entity and a related party, regardless of whether a price is
+                        charged. The term transaction includes a single transaction or a group of transactions.
                     </p>
                 </div>
-                <div class="takeaway-card" style="border-left-color: #ef4444;">
-                    <div class="takeaway-title">
-                        <i class="fas fa-shield-alt text-red-500 mr-3"></i>
-                        <p>Compliance as a Shield</p>
-                    </div>
-                    <p class="takeaway-text">
-                        Detailed checks against Schedule III, CARO 2020, and Accounting Standards protect the company
-                        and directors from penal provisions and reputational damage associated with financial
-                        misstatements.
-                    </p>
-                </div>
-                <div class="takeaway-card" style="border-left-color: #3b82f6;">
-                    <div class="takeaway-title">
-                        <i class="fas fa-handshake text-blue-500 mr-3"></i>
-                        <p>Trust &amp; Governance</p>
-                    </div>
-                    <p class="takeaway-text">
-                        Ultimately, a rigorously scrutinized financial statement builds unshakeable trust with
-                        shareholders, lenders, and regulators, marking the pinnacle of mature Corporate Governance.
-                    </p>
-                </div>
+
             </div>
-            <!-- Right: Ecosystem Diagram -->
-            <div class="visual-column">
-                <div class="ecosystem-container">
-                    <!-- Connector Ring -->
-                    <div class="connector-ring"></div>
-                    <!-- Directional Arrows -->
-                    <i class="fas fa-chevron-right arrow-icon arrow-1"></i>
-                    <i class="fas fa-chevron-right arrow-icon arrow-2"></i>
-                    <i class="fas fa-chevron-right arrow-icon arrow-3"></i>
-                    <i class="fas fa-chevron-right arrow-icon arrow-4"></i>
-                    <!-- Center Hub -->
-                    <div class="hub">
-                        <i class="fas fa-landmark hub-icon"></i>
-                        <div class="hub-text">Stronger<br />Governance</div>
-                    </div>
-                    <!-- Node 1: Top (Input) -->
-                    <div class="node node-1">
-                        <i class="fas fa-file-invoice-dollar node-icon" style="color: #10b981;"></i>
-                        <div class="node-text">Financial<br />Statements</div>
-                    </div>
-                    <!-- Node 2: Right (Process) -->
-                    <div class="node node-2">
-                        <i class="fas fa-microscope node-icon" style="color: #f59e0b;"></i>
-                        <div class="node-text">Scrutiny &amp;<br />Analysis</div>
-                    </div>
-                    <!-- Node 3: Bottom (Control) -->
-                    <div class="node node-3">
-                        <i class="fas fa-gavel node-icon" style="color: #ef4444;"></i>
-                        <div class="node-text">Regulatory<br />Compliance</div>
-                    </div>
-                    <!-- Node 4: Left (Output) -->
-                    <div class="node node-4">
-                        <i class="fas fa-globe node-icon" style="color: #3b82f6;"></i>
-                        <div class="node-text">Transparency<br />&amp; Trust</div>
-                    </div>
+
+            <!-- Comparison -->
+
+            <div class="comparison-table">
+
+                <div class="table-header">
+                    <div>Aspect</div>
+                    <div>Ind AS 24</div>
+                    <div>SEBI LODR</div>
                 </div>
+
+                <div class="table-row">
+                    <div class="font-semibold">Purpose</div>
+                    <div>Accounting disclosure in financial statements</div>
+                    <div>Regulatory governance for listed entities</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="font-semibold">Scope</div>
+                    <div>All reporting entities applying Ind AS</div>
+                    <div>Listed companies regulated by SEBI</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="font-semibold">Transaction Definition</div>
+                    <div>Transfer of resources, services, or obligations</div>
+                    <div>Same definition but explicitly includes group of transactions</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="font-semibold">Objective</div>
+                    <div>Ensure transparency in financial reporting</div>
+                    <div>Protect minority shareholders and strengthen governance</div>
+                </div>
+
             </div>
+
+            <!-- Ind AS Explanation -->
+
+            <div class="context-box">
+
+                <h3 class="font-montserrat font-bold text-gray-800 mb-1 text-base">
+                    Ind AS 24 – Meaning of Related Party
+                </h3>
+
+                <p class="text-sm text-gray-600 mb-1.5">
+                    Under <strong>Indian Accounting Standard (Ind AS) 24</strong>, a related party is defined as a
+                    person or entity related to the reporting entity preparing financial statements. This includes
+                    individuals or close family members with control, joint control, significant influence, or key
+                    management personnel (KMP) status over the entity or its parent.
+                </p>
+
+                <p class="text-sm text-gray-600 mb-1.5">
+                    <strong>Key Persons as Related Parties:</strong> A person or close family member qualifies if they
+                    control or jointly control the entity, have significant influence, or act as Key Management
+                    Personnel (KMP). Close family includes spouse or domestic partner, children, and dependents who may
+                    influence transactions with the entity.
+                </p>
+
+                <p class="text-sm text-gray-600 mb-0">
+                    <strong>Key Entities as Related Parties:</strong> Entities are considered related if they belong to
+                    the same corporate group (parent, subsidiary, or fellow subsidiaries), are associates or joint
+                    ventures of the same party, or are government-related entities exercising control or significant
+                    influence.
+                </p>
+
+            </div>
+
         </div>
+
         <!-- Footer -->
         <div class="footer">
             <p>Scrutiny of Balance Sheet - CS Compliance Perspective</p>
             <div class="flex items-center space-x-4">
-                <p>Summary &amp; Conclusion</p>
+                <p>Related Party Transactions</p>
                 <div class="h-3 w-px bg-white opacity-50"></div>
                 <p>Page 26</p>
             </div>
