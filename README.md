@@ -1,6 +1,6 @@
 # SlidesViewer
 
-An HTML slide presentation with a single-page viewer. Navigate between slides and run full-screen. asd
+An HTML slide presentation with a single-page viewer. Navigate between slides and run full-screen.
 
 ---
 
